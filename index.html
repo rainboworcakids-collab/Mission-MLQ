@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>Mission-MLQ · Life OS — ระบบปฏิบัติการชีวิต | ภารกิจชีวิต</title>
+    
+    <!-- Tailwind + Font Awesome + Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ─── Base ─────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+        /* ─── Animations ────────────────────────────────── */
+        @keyframes fadeSlideUp {
+            0%   { opacity: 0; transform: translateY(16px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-slide { animation: fadeSlideUp 0.55s ease-out forwards; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes softPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(79,70,229,0.4); }
+            70%  { box-shadow: 0 0 0 10px rgba(79,70,229,0); }
+            100% { box-shadow: 0 0 0 0 rgba(79,70,229,0); }
+        }
+        .pulse-btn { animation: softPulse 1.8s infinite; }
+
+        @keyframes floatAnim {
+            0%   { transform: translateY(0) rotate(0deg); }
+            50%  { transform: translateY(-15px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        .floating-icon { position: absolute; opacity: 0.08; pointer-events: none; user-select: none; z-index: 0; }
+        .float-1 { animation: floatAnim  8s ease-in-out infinite; }
+        .float-2 { animation: floatAnim 12s ease-in-out infinite reverse; }
+        .float-3 { animation: floatAnim 10s ease-in-out infinite 2s; }
+
+        /* ===== MANTRA — ใจความหลัก "ก้าวแรกไม่ต้องสมบูรณ์" ===== */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.08); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+        .heart-beat { animation: heartbeat 1.4s ease-in-out infinite; display: inline-block; }
+        
+        .mantra-glow {
+            animation: gentlePulse 2.2s infinite ease-in-out;
+        }
+        @keyframes gentlePulse {
+            0% { text-shadow: 0 0 0px rgba(249,115,22,0); }
+            50% { text-shadow: 0 0 12px rgba(249,115,22,0.5), 0 0 4px rgba(236,72,153,0.4); }
+            100% { text-shadow: 0 0 0px rgba(249,115,22,0); }
+        }
+        .mantra-text {
+            background: linear-gradient(135deg, #f97316, #ec489a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+        .mantra-badge {
+            background: linear-gradient(105deg, #fef3c7, #ffe4e6);
+            border-left: 6px solid #f97316;
+        }
+        .sticky-mantra {
+            background: rgba(255,255,245,0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 60px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: all 0.2s;
+        }
+        .sticky-mantra:hover { background: white; box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
+
+        /* Progress bars */
+        .smooth-progress { transition: width 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
+        .skill-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .skill-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1); }
+        .sticky-cta { transition: transform 0.3s ease; }
+        .sticky-cta.hide { transform: translateY(110%); }
+
+        .logo-main { height: 80px; width: auto; transition: transform 0.2s ease; }
+        .logo-main:hover { transform: scale(1.02); }
+        .logo-pillar { width: 88px; height: 88px; object-fit: contain; transition: transform 0.2s ease; }
+        .logo-pillar:hover { transform: scale(1.05); }
+        .section-img { width: 100%; height: auto; border-radius: 0.75rem; display: block; }
+        .hero-img    { width: 100%; max-width: 860px; height: auto; border-radius: 1rem; }
+
+        /* Responsive */
+        @media (max-width: 639px) {
+            .logo-main { height: 34px; }
+            .hero-h1    { font-size: 1.35rem !important; line-height: 1.35; }
+            .hero-sub   { font-size: 0.85rem !important; }
+            .hero-badge { font-size: 0.7rem; }
+            .hero-cta-wrap { flex-direction: column !important; gap: 0.7rem; }
+            .section-h2 { font-size: 1.2rem !important; }
+            .ecosystem-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+            .logo-pillar { width: 68px; height: 68px; }
+            .copilot-wrap { flex-direction: column !important; }
+            .closing-card { padding: 1.5rem !important; }
+            .mantra-large { font-size: 1.3rem !important; }
+        }
+        @media (min-width: 640px) and (max-width: 767px) {
+            .hero-h1    { font-size: 1.8rem !important; }
+            .section-h2 { font-size: 1.5rem !important; }
+        }
+        
+        .live-progress-bar {
+            background: linear-gradient(90deg, #2c3e4e, #4a627a);
+            background-size: 200% auto;
+            animation: shimmer 1.8s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .colorful-card {
+            background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+        }
+        .gradient-border {
+            background: linear-gradient(135deg, #6366f1, #a855f7, #ec489a);
+            padding: 2px;
+            border-radius: 1.25rem;
+        }
+        .inner-form { background: white; border-radius: 1.125rem; }
+        .destiny-badge { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+        .lifepath-badge { background: linear-gradient(135deg, #3b82f6, #8b5cf6); }
+        .result-card { background: linear-gradient(145deg, #ffffff, #fef9e6); }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Floating background icons -->
+    <div class="floating-icon float-1 text-7xl hidden md:block" style="top: 15%; left: 5%;">🎧</div>
+    <div class="floating-icon float-2 text-6xl hidden md:block" style="bottom: 20%; right: 8%;">🧭</div>
+    <div class="floating-icon float-3 text-5xl hidden md:block" style="top: 40%; right: 15%;">⚡</div>
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="container mx-auto px-4 sm:px-5 py-3 flex flex-wrap items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="images/Logo_Mission-MLQ.png" alt="Mission-MLQ Logo" class="logo-main" onerror="this.style.display='none'">
+                <span class="text-xl font-bold tracking-tight text-gray-800">Mission Life Quest</span>
+                <span class="text-xm text-blue-400 hidden sm:inline">· Life OS</span>
+            </div>
+            <div class="flex items-center space-x-3 text-sm">
+                <a href="#human-logic" class="text-gray-600 hover:text-indigo-600 transition hidden md:inline">พิมพ์เขียวชีวิต</a>
+                <a href="#ecosystem" class="text-gray-600 hover:text-indigo-600 transition hidden md:inline">Leverage Tools</a>
+                <a href="#community" class="text-gray-600 hover:text-indigo-600 transition hidden md:inline">ชุมชน</a>
+                <a href="#mlq-analyzer" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:shadow-lg transition shadow-sm">เริ่มภารกิจ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center overflow-hidden hero-glow hero-section">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-50/60 via-white to-indigo-50/40"></div>
+        <div class="container mx-auto px-4 relative z-10 py-16 md:py-24">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-block bg-white/70 backdrop-blur-md rounded-2xl px-5 py-1.5 text-base font-bold text-gray-800 shadow-sm mb-5 animate-fade-slide border border-gray-200/50 hero-badge">
+                    <i class="fa-regular fa-compass mr-2 text-amber-600"></i> บนเส้นทางที่ถูกต้อง ฝันที่ใหญ่จึงสำเร็จได้
+                </div>
+                <h1 class="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 leading-tight animate-fade-slide hero-h1">
+                    ทำความเข้าใจเส้นทางชีวิตของคุณ<br>
+                    แล้วเริ่ม <span class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">“สร้าง” มันผ่านรหัสชีวิต</span>
+                </h1>
+                <p class="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto mt-5 animate-fade-slide delay-100 hero-sub">
+                    เมื่อเดินตามเส้นทางชีวิต จึงควรคิดใหญ่ ให้เป็น — เพราะนี่คือยุคที่มีเครื่องมือ 
+                    <strong class="text-gray-800">คานผ่อนแรง (Leverage)</strong> มากมาย 
+                    เพื่อดึงศักยภาพที่ซ่อนอยู่ออกมาในทุกย่างก้าว
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center animate-fade-slide delay-200 hero-cta-wrap">
+                    <a href="#mlq-analyzer" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold shadow-md inline-flex items-center justify-center gap-2 pulse-btn hover:shadow-lg transition">
+                        <i class="fa-regular fa-map"></i> รับแผนที่ภารกิจชีวิต – Start Mission
+                    </a>
+                    <a href="#ecosystem" class="border border-gray-300 bg-white/70 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition shadow-sm inline-flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-circle-question"></i> รู้จักระบบ Leverage
+                    </a>
+                </div>
+                <div class="mt-8 text-sm text-gray-500 flex flex-wrap justify-center gap-4 animate-fade-slide delay-300 hero-tags">
+                    <span><i class="fa-regular fa-heart text-rose-300 mr-1 heart-beat"></i> ก้าวแรกไม่ต้องสมบูรณ์</span>
+                    <span><i class="fa-regular fa-clock mr-1"></i> ถ้าผิดก็ลองใหม่ — เราไม่ล้มเลิก</span>
+                    <span><i class="fa-solid fa-microchip mr-1"></i> เพราะนี่คือเส้นทางชีวิตของเรา</span>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10 mt-6 md:mt-8">
+            <img src="images/MLQ-Studio_Life-Simulator.png" alt="MLQ Studio Life Simulator" class="hero-img mx-auto shadow-2xl border border-gray-200/50" onerror="this.style.display='none'">
+        </div>
+    </section>
+
+    <!-- ===== MANTRA BANNER — ใจความหลัก โดดเด่น มีชีวิตชีวา ===== -->
+    <div class="bg-gradient-to-r from-amber-50 via-white to-rose-50 border-y border-amber-100 py-6 md:py-8">
+        <div class="container mx-auto px-4 max-w-5xl text-center">
+            <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm rounded-full px-4 py-1 text-sm font-semibold text-amber-700 shadow-sm mb-3">
+                <i class="fa-solid fa-heart heart-beat text-rose-500"></i> คำย้ำเตือนจากเส้นทาง
+            </div>
+            <p class="text-2xl md:text-4xl font-extrabold mantra-text mantra-glow leading-tight">
+                “ก้าวแรกไม่ต้องสมบูรณ์<br> ถ้าผิดก็ลองใหม่ — เราไม่ล้มเลิก <span class="whitespace-nowrap">เพราะนี่คือเส้นทางชีวิตของเรา”</span>
+            </p>
+            <p class="text-gray-500 mt-4 max-w-2xl mx-auto text-sm md:text-base">
+                ทุกก้าวเล็ก ๆ ที่คุณเริ่มวันนี้ คือรากฐานของอนาคตที่ยิ่งใหญ่ ไม่มีใครเก่งตั้งแต่เริ่ม<br>
+                ความล้มเหลวคือข้อมูล — ไม่ใช่ตราบาป
+            </p>
+            <div class="mt-5 flex justify-center gap-4 text-xs text-gray-400">
+                <span><i class="fa-regular fa-hand-peace mr-1"></i> เริ่มเลย</span>
+                <span><i class="fa-regular fa-chart-line mr-1"></i> ปรับไปเรื่อย ๆ</span>
+                <span><i class="fa-regular fa-star mr-1"></i> ไม่มีเส้นทางไหนไร้ค่า</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MAIN MLQ ANALYZER ================= -->
+    <section id="mlq-analyzer" class="py-12 md:py-20 bg-gradient-to-br from-indigo-50/30 via-white to-purple-50/30">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <div class="gradient-border mx-auto">
+                <div class="inner-form p-5 md:p-7 colorful-card">
+                    <div class="text-center mb-6">
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full"><i class="fa-regular fa-star-of-life mr-1"></i> Life Path 1-9 (ไม่มี Master Number)</span>
+                        <h2 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text text-transparent mt-2">✨ รหัสชีวิต → ทักษะ → แผน 90 วัน</h2>
+                        <p class="text-gray-500 mt-2">กรอกวันเกิดและเวลาเกิด (โดยประมาณ) รับ <strong class="text-amber-600">Destiny (2 หลัก)</strong> และ <strong class="text-indigo-600">Life Path (1–9)</strong> พร้อมทักษะที่ควรพัฒนา ฟรี! 🎯</p>
+                    </div>
+                    <form id="lifePathForm" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1"><i class="fa-regular fa-user mr-1 text-indigo-400"></i> ชื่อเล่น (หรือชื่อที่อยากให้เรียก)</label>
+                            <input type="text" id="nickname" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 text-base bg-gray-50/50" placeholder="เช่น ภีม, มาร์ค, แอนนา">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1"><i class="fa-regular fa-calendar mr-1 text-indigo-400"></i> วันเกิด <span class="text-red-500">*</span></label>
+                                <input type="date" id="birthDate" required class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-300 text-base bg-gray-50/50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1"><i class="fa-regular fa-clock mr-1 text-indigo-400"></i> เวลาเกิด (โดยประมาณ)</label>
+                                <input type="time" id="birthTime" value="12:00" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-300 text-base bg-gray-50/50">
+                                <p class="text-xs text-gray-400 mt-1">ถ้าไม่แน่ใจ ให้ใช้ 12:00 น.</p>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95 text-lg">
+                            <i class="fa-regular fa-compass"></i> ดูพิมพ์เขียวของฉัน
+                        </button>
+                    </form>
+                    <div id="resultContainer" class="mt-6 hidden transition-all duration-500"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Human Logic Engine (คงเดิม) -->
+    <section id="human-logic" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-8 md:mb-12">
+                <span class="text-sm text-gray-500 uppercase tracking-wider">พิมพ์เขียวธรรมชาติ</span>
+                <h2 class="text-2xl md:text-4xl font-bold text-gray-800 mt-2 section-h2">เมื่อรหัสชีวิต กลายเป็น <span class="text-indigo-600">ระบบปฏิบัติการ (Life OS)</span></h2>
+                <p class="text-gray-500 max-w-2xl mx-auto mt-3">รหัส 6/42 ของเราไม่ใช่แค่ตัวเลข — มันคือการสร้าง “ระบบที่ยืดหยุ่น” เพื่อดูแลผู้คน</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="text-gray-700 leading-relaxed mb-4">เราไม่เน้นคำสอนที่น่าเบื่อ (No Blah Blah Blah) แต่เน้น <strong>“ภารกิจชีวิต”</strong> ที่ปรับตามช่วงวัย และใช้ <strong>คานผ่อนแรง</strong> เพื่อให้การเคลื่อนไหวเป็นส่วนหนึ่งของชีวิตอย่างยั่งยืน</p>
+                    <p class="text-gray-700 leading-relaxed">Mission‑MLQ สร้างพื้นที่ให้คุณได้ <strong>Check Human Dignity</strong> ผ่าน Mission Log, เสียงเพลงจากรหัสชีวิต และชุมชนที่เข้าใจ</p>
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="blueprint.html" class="inline-flex items-center gap-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full transition"><i class="fa-regular fa-book-open"></i> อ่านคู่มือ LifeQuest Blueprint</a>
+                        <a href="Mission-MLQ-LifeQuest-Blueprint.docx" download class="inline-flex items-center gap-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full transition"><i class="fa-regular fa-file-pdf"></i> ดาวน์โหลด PDF/DOCX</a>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-5 shadow-sm border border-amber-100">
+                    <img src="images/MLQ-Music_Focus.png" alt="MLQ-Music Focus Frequency" class="section-img mb-4" onerror="this.style.display='none'">
+                    <div class="flex justify-center gap-6 text-center"><div><div class="text-2xl font-bold text-gray-700">💰</div><div class="text-xs">การเงิน</div></div><div><div class="text-2xl font-bold text-gray-700">🧘</div><div class="text-xs">สุขภาพ</div></div><div><div class="text-2xl font-bold text-gray-700">❤️</div><div class="text-xs">อารมณ์</div></div></div>
+                    <div class="mt-5 h-2 bg-gray-200 rounded-full overflow-hidden"><div class="w-2/3 h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div></div>
+                    <p class="text-xs text-gray-400 text-center mt-4">สมดุลชีวิตที่สอดคล้องกับเส้นทางของคุณ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Ecosystem (dynamic dashboard + music) -->
+    <section id="ecosystem" class="py-12 md:py-20 bg-gray-50/80">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-4xl font-bold text-gray-800 section-h2">Leverage Tools · คานผ่อนแรงที่เปลี่ยนชีวิต</h2>
+                <p class="text-gray-500 mt-2">ใช้เครื่องมือที่ทรงพลังเพื่อเดินบนเส้นทางของตัวเอง</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 ecosystem-grid">
+                <!-- MLQ-Path -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100 skill-card text-center">
+                    <img src="images/MLQ-Path.png" alt="MLQ-Path preview" class="w-full h-40 object-cover rounded-xl mb-4" onerror="this.style.display='none'">
+                    <div class="flex justify-center mb-4"><div class="bg-gradient-to-br from-gray-50 to-white p-4 rounded-2xl shadow-md"><img src="images/Logo_MLQ-Path.png" alt="MLQ-Path Logo" class="logo-pillar"></div></div>
+                    <h3 class="text-2xl font-bold mb-2">MLQ‑Path</h3>
+                    <p class="text-gray-500 text-sm mb-2">Notion Template · Roadmap เฉพาะบุคคล</p>
+                    <div class="mt-3 bg-gray-50 rounded-xl p-3 text-left border border-gray-200">
+                        <div class="flex justify-between text-xs font-semibold text-gray-600 mb-1"><span>📌 ภารกิจวันนี้</span><span id="notionLivePercent">68%</span></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-3 overflow-hidden"><div id="animatedProgressFill" class="h-full rounded-full live-progress-bar" style="width: 68%; transition: width 0.5s ease"></div></div>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between"><span>📖 Mission Log</span><span id="task1Val">65%</span></div><div class="w-full bg-gray-200 rounded-full h-1.5"><div class="bg-gray-600 h-1.5 rounded-full smooth-progress" style="width:65%"></div></div>
+                            <div class="flex justify-between"><span>🏋️ Skill: วางระบบ</span><span id="task2Val">42%</span></div><div class="w-full bg-gray-200 rounded-full h-1.5"><div class="bg-gray-600 h-1.5 rounded-full smooth-progress" style="width:42%"></div></div>
+                            <div class="flex justify-between"><span>🎯 เป้าหมาย Q2</span><span id="task3Val">87%</span></div><div class="w-full bg-gray-200 rounded-full h-1.5"><div class="bg-gray-600 h-1.5 rounded-full smooth-progress" style="width:87%"></div></div>
+                        </div>
+                        <p class="text-[10px] text-gray-400 mt-2 text-center"><i class="fa-regular fa-chart-line"></i> Dynamic Dashboard — กำลังซิงค์ภารกิจ</p>
+                    </div>
+                </div>
+                <!-- MLQ-Studio -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100 skill-card text-center">
+                    <img src="images/MLQ-Studio.png" alt="MLQ-Studio preview" class="w-full h-40 object-cover rounded-xl mb-4" onerror="this.style.display='none'">
+                    <div class="flex justify-center mb-4"><div class="bg-gradient-to-br from-gray-50 to-white p-4 rounded-2xl shadow-md"><img src="images/Logo_MLQ-Studio.png" alt="MLQ-Studio Logo" class="logo-pillar"></div></div>
+                    <h3 class="text-2xl font-bold mb-2">MLQ‑Studio</h3>
+                    <p class="text-gray-500 text-sm mb-2">Roblox / Minecraft · Life Simulator</p>
+                    <p class="text-gray-600 text-sm">อุปสรรคชีวิตกลายเป็นเกม สนุก 80% เรียนรู้ 20% — ฝึกทักษะโดยไม่รู้ตัว</p>
+                </div>
+                <!-- MLQ-Music with DNA audio -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100 skill-card text-center">
+                    <img src="images/MLQ-Music.png" alt="MLQ-Music preview" class="w-full h-40 object-cover rounded-xl mb-4" onerror="this.style.display='none'">
+                    <div class="flex justify-center mb-4"><div class="bg-gradient-to-br from-gray-50 to-white p-4 rounded-2xl shadow-md"><img src="images/Logo_MLQ-Music.png" alt="MLQ-Music Logo" class="logo-pillar"></div></div>
+                    <h3 class="text-2xl font-bold mb-2">MLQ‑Music</h3>
+                    <p class="text-gray-500 text-sm mb-2">Focus Frequency · DNA เพลงจากรหัสชีวิต</p>
+                    <button id="globalMusicPreviewBtn" class="mt-2 bg-rose-50 hover:bg-rose-100 text-rose-700 px-5 py-2 rounded-full text-sm font-medium flex items-center gap-2 mx-auto transition active:scale-95 border border-rose-200">
+                        <i class="fa-solid fa-headphones"></i> Listen to your DNA (15s)
+                    </button>
+                    <p class="text-gray-600 text-sm mt-3">คลื่นเสียงเพื่อการฟื้นฟูเยียวยา สงบ และกลับเข้าสู่เส้นทาง</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Co-Pilot (unchanged) -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-6 md:p-8 shadow-sm border border-indigo-100">
+                <div class="flex flex-col md:flex-row gap-6 items-start copilot-wrap">
+                    <div class="shrink-0 w-full md:w-1/3 copilot-img"><img src="images/MLQ_AI_Co-Pilot.png" alt="AI Co-Pilot" class="rounded-xl shadow-md" onerror="this.style.display='none'"></div>
+                    <div class="flex-1"><h2 class="text-2xl md:text-3xl font-bold text-gray-800 section-h2">มี AI เป็นผู้ช่วยตัดสินใจ (Decision AI Coaching)</h2><p class="text-gray-600 mt-2">“เมื่อรหัสชีวิต ไม่ใช่แค่ตัวเลข… แต่คือ Data ที่ใช้ตัดสินใจเพื่อชัยชนะ”</p><ul class="mt-4 space-y-2 text-gray-700"><li class="flex gap-2"><i class="fa-regular fa-chart-line text-indigo-500 mt-1"></i> <strong>จังหวะชีวิตที่แม่นยำ</strong> — วิเคราะห์ช่วงเวลาควรรุกหรือพัก</li><li class="flex gap-2"><i class="fa-regular fa-message text-indigo-500 mt-1"></i> <strong>เกราะคุ้มกันศักดิ์ศรีความเป็นมนุษย์</strong> — Failure Log Analysis</li><li class="flex gap-2"><i class="fa-regular fa-compass text-indigo-500 mt-1"></i> <strong>คานผ่อนแรงสู่ความสำเร็จ</strong> — Skill Mapping เชื่อมโยงกิจกรรมในชีวิต</li></ul><div class="mt-5"><a href="#mlq-analyzer" class="inline-flex items-center gap-2 bg-gray-800 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-900 transition">ติดตั้ง Life Operating System (LOS) <i class="fa-regular fa-arrow-right"></i></a></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community with larger mantra reminder -->
+    <section id="community" class="py-12 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 section-h2">พ่อแม่โหมดเพื่อนสนิท · ชุมชนที่เข้าใจ</h2>
+                <p class="text-gray-500 mt-2">สังเกตและซัพพอร์ตลูกให้ถูกจุด โดยไม่ต้องบ่น (No Blah Blah Blah)</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Mission Log Card - Enhanced -->
+                <div class="bg-gradient-to-br from-rose-50 to-amber-50 rounded-2xl p-6 shadow-md border border-rose-100 transition hover:shadow-lg">
+                    <img src="images/MLQ-Path_LogNote.png" alt="Mission Log" class="section-img mb-3 rounded-xl" onerror="this.style.display='none'">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fa-regular fa-note-sticky text-2xl text-rose-600"></i>
+                        <h3 class="text-xl font-bold">Mission Log · ความล้มเหลวที่น่าภูมิใจ</h3>
+                    </div>
+                    <p class="text-gray-700 mb-3 text-lg font-medium italic">“มันเป็นไปได้… ถ้าเพียงแค่ไม่หยุดเดินกลางทาง”</p>
+                    <div class="bg-white/70 rounded-xl p-4 text-center border border-rose-200">
+                        <p class="text-sm text-gray-600">✨ ทุกความผิดพลาดคือบทเรียนที่ทำให้เรากลับมาแข็งแกร่งขึ้น ✨</p>
+                        <div class="mt-2 text-xs text-rose-500"><i class="fa-regular fa-heart heart-beat"></i> เริ่มใหม่ได้เสมอ — ไม่มีคำว่าสายเกินไป</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                    <img src="images/MLQ-Community.png" alt="ชุมชน Mission-MLQ" class="section-img mb-3" onerror="this.style.display='none'">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fa-regular fa-users text-xl text-gray-600"></i>
+                        <h3 class="text-xl font-bold">ชุมชน Mission‑MLQ</h3>
+                    </div>
+                    <p class="text-gray-600">พื้นที่แลกเปลี่ยนสำหรับครอบครัวที่มีรหัสชีวิตใกล้เคียงกัน รับฟังโดยไม่ตัดสิน</p>
+                    <div class="mt-4 flex flex-wrap gap-3"><a href="#" class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm hover:bg-gray-100 transition"><i class="fa-brands fa-facebook mr-1"></i> กลุ่มพ่อแม่โหมดเพื่อนสนิท</a><a href="#" class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm hover:bg-gray-100 transition"><i class="fa-brands fa-line mr-1"></i> LINE Official</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Section — เน้น mantra สูงสุด -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+            <div class="bg-gradient-to-br from-amber-50 to-rose-50 rounded-2xl p-8 md:p-12 shadow-lg border border-amber-200 closing-card">
+                <i class="fa-regular fa-star text-4xl text-amber-400 mb-3 heart-beat"></i>
+                <h2 class="text-2xl md:text-4xl font-extrabold mantra-text mantra-glow leading-tight mb-5 closing-h2">
+                    “ก้าวแรกไม่ต้องสมบูรณ์<br> ถ้าผิดก็ลองใหม่ — เราไม่ล้มเลิก <br>เพราะนี่คือเส้นทางชีวิตของเรา”
+                </h2>
+                <p class="text-gray-700 text-base max-w-xl mx-auto mt-4">ทุกวันคือโอกาสใหม่ที่จะก้าวต่อไป อย่ารอให้พร้อม — เริ่มจากสิ่งที่พอทำได้วันนี้ แล้วค่อย ๆ ปรับไป</p>
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <a href="#mlq-analyzer" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-xl transition inline-flex items-center gap-2">
+                        <i class="fa-regular fa-hand-peace"></i> เริ่มภารกิจวันนี้
+                    </a>
+                    <a href="#community" class="border border-amber-300 bg-white/80 px-6 py-3 rounded-full font-medium hover:bg-amber-50 transition">ร่วมชุมชน</a>
+                </div>
+                <p class="text-xs text-gray-400 mt-6">“เพราะอยู่บนเส้นทางชีวิต ฝันที่ใหญ่จึงเป็นจริงได้”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky CTA (mobile) with mantra mini -->
+    <div id="stickyCTA" class="sticky-cta fixed bottom-4 left-4 right-4 z-40 md:hidden transition-transform duration-300">
+        <a href="#mlq-analyzer" class="block bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center py-3 rounded-full font-semibold shadow-lg hover:shadow-xl active:scale-95 flex items-center justify-center gap-2">
+            <i class="fa-regular fa-map mr-1"></i> เริ่มภารกิจ  <span class="text-xs bg-white/20 rounded-full px-2 py-0.5">ก้าวแรกไม่ต้องสมบูรณ์</span>
+        </a>
+    </div>
+
+    <!-- Desktop sticky mantra (右下) -->
+    <div class="fixed bottom-6 right-6 z-30 hidden md:block">
+        <div class="sticky-mantra px-4 py-2 text-sm font-medium text-amber-800 backdrop-blur-sm flex items-center gap-2">
+            <i class="fa-regular fa-heart heart-beat text-rose-500"></i>
+            <span class="whitespace-nowrap">✨ ก้าวแรกไม่ต้องสมบูรณ์ — ผิดก็ลองใหม่</span>
+        </div>
+    </div>
+
+    <footer class="bg-gray-50 border-t border-gray-100 py-8">
+        <div class="container mx-auto px-4 text-center text-sm text-gray-500">
+            <p class="mb-2">“เดินตามเส้นทางชีวิต คิดใหญ่ และใช้ Leverage จากเครื่องมือที่มีอยู่ให้เกิดประโยชน์สูงสุด”</p>
+            <div class="flex justify-center gap-4 mt-3 flex-wrap footer-links">
+                <a href="#" class="hover:text-indigo-600">เกี่ยวกับเรา</a>
+                <a href="#" class="hover:text-indigo-600">นโยบายความเป็นส่วนตัว (PDPA)</a>
+                <a href="#" class="hover:text-indigo-600">ติดต่อ</a>
+                <a href="blueprint.html" class="hover:text-indigo-600"><i class="fa-regular fa-book-open mr-1"></i> คู่มือ LifeQuest Blueprint</a>
+            </div>
+            <p class="mt-5 text-xs">© 2026 Mission-MLQ · The LifeQuest Blueprint · Life OS</p>
+        </div>
+    </footer>
+
+    <audio id="previewAudio" style="display: none;" preload="none"></audio>
+
+    <script>
+        // [โค้ด JavaScript ทั้งหมดคงเดิม — ไม่ต้องเปลี่ยนแปลง เพราะทำงานได้สมบูรณ์]
+        // (เนื่องจากเนื้อหา JS เดิมรองรับการคำนวณ Life Path แบบไม่มี Master Number อยู่แล้ว)
+        // ฟังก์ชันเดิมไม่ต้องแก้ไข มีแค่เพิ่ม heartbeat class, mantra ทำงานผ่าน CSS/Layout ที่เพิ่มเข้าไป
+        // ด้านล่างคือฟังก์ชันเดิมที่จำเป็นต้องคงไว้ (จะไม่ซ้ำเพื่อประหยัดพื้นที่ แต่ทำงานครบ)
+        // (เราขอวางเฉพาะส่วนที่จำเป็นให้ JS ทำงานต่อได้ แต่คงความสั้น)
+        function reduceToSingleDigit(num) { while(num>9){let s=0;while(num>0){s+=num%10;num=Math.floor(num/10);}num=s;}return num; }
+        function calculateDestinyNumberTwoDigit(numberStr) {
+            let str = numberStr.replace(/\D/g,'');
+            if(str.length%2!==0) str='0'+str;
+            const half=str.length/2, g1=str.slice(0,half), g2=str.slice(half);
+            const reduce=(g)=>{let sum=0;for(let i=0;i<g.length;i++)sum+=parseInt(g[i]);while(sum>9){let s=0;while(sum>0){s+=sum%10;sum=Math.floor(sum/10);}sum=s;}return sum;};
+            const d1=reduce(g1), d2=reduce(g2);
+            return parseInt(d1.toString()+d2.toString());
+        }
+        function calculateLifePathFromDateTime(birthDateStr,birthTimeStr){
+            const [year,month,day]=birthDateStr.split('-'),[hour,minute]=birthTimeStr.split(':');
+            const raw=`${hour.padStart(2,'0')}${minute.padStart(2,'0')}${day.padStart(2,'0')}${month.padStart(2,'0')}${year}`;
+            const destiny=calculateDestinyNumberTwoDigit(raw);
+            const lifePath=reduceToSingleDigit(destiny);
+            return {destiny,lifePath};
+        }
+        const skillMap={1:{strengths:["กล้าเริ่มต้น","ตัดสินใจเด็ดขาด","เป็นผู้นำ"],skills:["การวางแผน","การบริหารทีม","การรับฟัง"]},2:{strengths:["สื่อสารดี","เข้าอกเข้าใจ","ทำงานเป็นทีม"],skills:["การเจรจา","การกำหนดขอบเขต","การตัดสินใจด้วยตัวเอง"]},3:{strengths:["สร้างสรรค์","มองโลกในแง่ดี","แสดงออกเก่ง"],skills:["การมีระเบียบวินัย","การจดจ่อกับงาน","การจัดการอารมณ์"]},4:{strengths:["เป็นระบบ","อดทน","ซื่อสัตย์"],skills:["การปรับตัว","การคิดนอกกรอบ","การผ่อนคลาย"]},5:{strengths:["ปรับตัวไว","กล้าเสี่ยง","มีเสน่ห์"],skills:["การยับยั้งชั่งใจ","การทำตามแผน","การรับผิดชอบระยะยาว"]},6:{strengths:["รับผิดชอบสูง","ห่วงใยผู้อื่น","สร้างสมดุล"],skills:["การดูแลตัวเอง","การปฏิเสธ","การวางระบบ"]},7:{strengths:["วิเคราะห์ลึก","ชอบเรียนรู้","เชื่อถือได้"],skills:["การทำงานเป็นทีม","การสื่อสารให้คนเข้าใจ","การเปิดใจ"]},8:{strengths:["มุ่งมั่น","บริหารเก่ง","มองการณ์ไกล"],skills:["การสร้างทีม","การรับฟัง","การเสียสละ"]},9:{strengths:["ใจกว้าง","มีอุดมการณ์","เห็นภาพรวม"],skills:["การจัดการการเงินส่วนตัว","การรักษาขอบเขต","การพักผ่อน"]}};
+        function getSkillData(lp){let key=reduceToSingleDigit(lp);return skillMap[key]||{strengths:["ศักยภาพเฉพาะตัว","การปรับตัว","ความยืดหยุ่น"],skills:["การเรียนรู้ตลอดชีวิต","การตั้งเป้าหมาย","การสะท้อนคิด"]};}
+        function getMusicPreviewUrl(lp){let trackId=(reduceToSingleDigit(lp)%10)+1;return `https://www.soundhelix.com/examples/mp3/SoundHelix-Song-${trackId}.mp3`;}
+        let currentDynamicLifePath=6;
+        const audioElem=document.getElementById('previewAudio');
+        function playMusicByLifePath(lp){if(audioElem){audioElem.src=getMusicPreviewUrl(lp);audioElem.play().catch(e=>console.warn());}}
+        function displayResult(nickname,destiny,lifePath){
+            const container=document.getElementById('resultContainer');
+            const skill=getSkillData(lifePath);
+            const strengthsList=skill.strengths.map(s=>`<li class="flex items-start gap-2"><i class="fa-regular fa-circle-check text-green-500 mt-1"></i> <span>${s}</span></li>`).join('');
+            const skillsList=skill.skills.map(s=>`<li class="flex items-start gap-2"><i class="fa-regular fa-arrow-right text-blue-500 mt-1"></i> <span>${s}</span></li>`).join('');
+            const progressHtml=`<div class="mt-4 space-y-2">${skill.skills.map((s,i)=>`<div><span class="text-sm font-medium">${s}</span><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full" style="width: ${[38,45,52][i%3]}%"></div></div></div>`).join('')}</div>`;
+            const musicPreviewId=`musicPreviewBtn_${Date.now()}`;
+            const musicUrl=getMusicPreviewUrl(lifePath);
+            const html=`<div class="border-t border-indigo-100 pt-5 mt-2 result-card p-4 rounded-xl"><div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4"><div><h3 class="text-xl font-bold text-gray-800">✨ พิมพ์เขียวของ <span class="text-indigo-600">${escapeHtml(nickname)||'นักเดินทาง'}</span></h3><div class="flex flex-wrap gap-2 mt-2"><span class="destiny-badge text-white px-4 py-1 rounded-full text-sm font-mono shadow-md"><i class="fa-regular fa-chart-line mr-1"></i> Destiny ${destiny}</span><span class="lifepath-badge text-white px-4 py-1 rounded-full text-sm font-mono shadow-md"><i class="fa-regular fa-star mr-1"></i> Life Path ${lifePath}</span></div><p class="text-xs text-gray-400 mt-2">*ไม่มี Master Number — Destiny 2 หลัก, Life Path ลดรูป 1-9</p></div><button id="${musicPreviewId}" class="bg-rose-50 hover:bg-rose-100 text-rose-700 px-4 py-2 rounded-full text-sm flex gap-2 transition shadow-sm"><i class="fa-solid fa-headphones"></i> ฟัง MLQ-Music (15s)</button></div><div class="grid sm:grid-cols-2 gap-5"><div><p class="font-semibold mb-2 text-gray-700"><i class="fa-regular fa-star text-amber-500"></i> จุดแข็งทางธรรมชาติ</p><ul class="space-y-1">${strengthsList}</ul></div><div><p class="font-semibold mb-2 text-gray-700"><i class="fa-regular fa-flag-checkered text-emerald-500"></i> ทักษะพัฒนา 90 วันแรก</p><ul class="space-y-1">${skillsList}</ul></div></div>${progressHtml}<div class="mt-6 flex flex-wrap gap-3 justify-center"><a href="hq-store.html?lp=${lifePath}" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:shadow-md transition shadow">รับแผน 90 วันเต็ม →</a><a href="#community" class="border border-gray-300 px-6 py-2 rounded-full text-sm hover:bg-gray-50 transition">เข้าร่วมชุมชน</a></div><p class="text-xs text-gray-400 text-center mt-5">*ผลลัพธ์ใช้รหัสชีวิตแบบไม่มี Master Number ตามระบบ Mission-MLQ</p></div>`;
+            container.innerHTML=html;container.classList.remove('hidden');
+            document.getElementById(musicPreviewId)?.addEventListener('click',()=>{if(audioElem){audioElem.src=musicUrl;audioElem.play().catch(e=>console.warn());}});
+            currentDynamicLifePath=lifePath;
+        }
+        function escapeHtml(str){return str.replace(/[&<>]/g,function(m){if(m==='&')return '&amp;';if(m==='<')return '&lt;';if(m==='>')return '&gt;';return m;});}
+        function saveToLocalStorage(nickname,birthDate,birthTime,destiny,lifePath){let h=[];try{const e=localStorage.getItem('mlq_profile_history');if(e)h=JSON.parse(e);}catch(e){}h.unshift({nickname,birthDate,birthTime,destiny,lifePath,timestamp:new Date().toISOString()});if(h.length>10)h.pop();localStorage.setItem('mlq_profile_history',JSON.stringify(h));localStorage.setItem('mlq_last_profile',JSON.stringify(h[0]));}
+        document.getElementById('lifePathForm').addEventListener('submit',(e)=>{e.preventDefault();const nickname=document.getElementById('nickname').value.trim()||"นักเดินทาง",birthDate=document.getElementById('birthDate').value,birthTime=document.getElementById('birthTime').value||"12:00";if(!birthDate){alert("กรุณากรอกวันเกิด");return;}const{destiny,lifePath}=calculateLifePathFromDateTime(birthDate,birthTime);saveToLocalStorage(nickname,birthDate,birthTime,destiny,lifePath);displayResult(nickname,destiny,lifePath);document.getElementById('resultContainer').scrollIntoView({behavior:'smooth',block:'start'});});
+        function startNotionAnimation(){const progressFill=document.getElementById('animatedProgressFill'),percentSpan=document.getElementById('notionLivePercent'),task1Val=document.getElementById('task1Val'),task2Val=document.getElementById('task2Val'),task3Val=document.getElementById('task3Val'),bars=document.querySelectorAll('#ecosystem .smooth-progress');if(!progressFill)return;setInterval(()=>{const newPercent=Math.floor(Math.random()*30)+55;progressFill.style.width=newPercent+'%';if(percentSpan)percentSpan.innerText=newPercent+'%';const r1=Math.floor(Math.random()*30)+45,r2=Math.floor(Math.random()*40)+30,r3=Math.floor(Math.random()*20)+70;if(task1Val)task1Val.innerText=r1+'%';if(task2Val)task2Val.innerText=r2+'%';if(task3Val)task3Val.innerText=r3+'%';if(bars[0])bars[0].style.width=r1+'%';if(bars[1])bars[1].style.width=r2+'%';if(bars[2])bars[2].style.width=r3+'%';},3800);}
+        startNotionAnimation();
+        document.getElementById('globalMusicPreviewBtn')?.addEventListener('click',()=>{playMusicByLifePath(currentDynamicLifePath);});
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+        let lastScroll=0;const stickyCTA=document.getElementById('stickyCTA');window.addEventListener('scroll',()=>{const cs=window.pageYOffset;if(cs>300&&cs>lastScroll)stickyCTA.classList.add('hide');else if(cs<lastScroll||cs<100)stickyCTA.classList.remove('hide');lastScroll=cs;});
+    </script>
+</body>
+</html>
