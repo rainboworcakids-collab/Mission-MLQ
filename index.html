@@ -330,14 +330,17 @@
                             <input type="text" id="nickname" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 text-base bg-gray-50/50" placeholder="เช่น ภีม, มาร์ค, แอนนา">
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <!-- วันเกิด (เปลี่ยนเป็น text field สำหรับ iOS ป้องกันปี พ.ศ. สับสน) -->
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1"><i class="fa-regular fa-calendar mr-1 text-indigo-400"></i> วันเกิด <span class="text-red-500">*</span></label>
-                                <input type="date" id="birthDate" required class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-300 text-base bg-gray-50/50">
+                                <input type="text" id="birthDate" required placeholder="DD/MM/YYYY" 
+                                       class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-300 text-base bg-gray-50/50">
+                                <p class="text-xs text-gray-400 mt-1">รูปแบบ วัน/เดือน/ปี ค.ศ. เช่น 28/01/2015</p>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1"><i class="fa-regular fa-clock mr-1 text-indigo-400"></i> เวลาเกิด (โดยประมาณ)</label>
-                                <input type="time" id="birthTime" value="12:00" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-300 text-base bg-gray-50/50">
-                                <p class="text-xs text-gray-400 mt-1">ถ้าไม่แน่ใจ ให้ใช้ 12:00 น.</p>
+                                <input type="time" id="birthTime" value="6:30" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-300 text-base bg-gray-50/50">
+                                <p class="text-xs text-gray-400 mt-1">ถ้าไม่แน่ใจ ให้ใช้ 6:30 น.(เช้าวันใหม่)</p>
                             </div>
                         </div>
                         <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95 text-lg">
@@ -554,12 +557,7 @@
             <div class="mt-20 text-center px-4"> 
               <a href="Docs/Mission-MLQ-LifeQuest-Blueprint.pdf" target="_blank" 
                   class="inline-flex items-center justify-center rounded-full font-bold shadow-lg hover:scale-105 transition-all pulse-btn w-fit mx-auto border-2 border-transparent"
-                  style="background: linear-gradient(105deg, #f97316, #ec489a); 
-                  color: white; 
-                  padding: 12px 40px; /* บังคับระยะห่าง: บน-ล่าง 12px, ซ้าย-ขวา 40px */
-                  min-width: 280px;   /* บังคับความกว้างขั้นต่ำเพื่อให้มีพื้นที่ด้านข้าง */
-                  display: inline-flex;">      
-        
+                  style="background: linear-gradient(105deg, #f97316, #ec489a); color: white; padding: 12px 40px; min-width: 280px; display: inline-flex;">      
                 <i class="fa-solid fa-file-pdf text-xl shrink-0 mr-3"></i>
                 <span class="text-sm sm:text-base whitespace-nowrap">รับพิมพ์เขียวฉบับสมบูรณ์ (PDF)</span>
               </a>
@@ -591,7 +589,8 @@
                         </span>
                     </div>
                 </div>
-                <p class="text-gray-700 text-base max-w-xl mx-auto mt-4">ทุกวันคือโอกาสใหม่ที่จะก้าวต่อไป อย่ารอให้พร้อม — เริ่มจากสิ่งที่พอทำได้วันนี้ แล้วค่อย ๆ ปรับไป</p>
+                <p class="text-gray-700 text-base max-w-xl mx-auto mt-4">ทุกวันคือโอกาสใหม่ที่จะก้าวต่อไป อย่ารอให้พร้อม</p>
+                <p class="text-gray-700 text-base max-w-xl mx-auto mt-4"> - เริ่มจากสิ่งที่พอทำได้วันนี้ แล้วค่อยๆปรับไป - </p>
                 <div class="mt-8 flex flex-wrap justify-center gap-4">
                     <a href="#mlq-analyzer" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-xl transition inline-flex items-center gap-2">
                         <i class="fa-regular fa-hand-peace"></i> เริ่มภารกิจวันนี้
@@ -634,7 +633,29 @@
     <audio id="previewAudio" style="display: none;" preload="none"></audio>
 
     <script>
-        // [JavaScript code remains identical to the original version; no changes needed]
+        // ======================== Helper functions สำหรับวันที่ (ป้องกัน iOS ปัญหาปี พ.ศ.) ========================
+        function formatDateInput(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length >= 2) value = value.slice(0,2) + '/' + value.slice(2);
+            if (value.length >= 5) value = value.slice(0,5) + '/' + value.slice(5,9);
+            input.value = value.slice(0,10);
+        }
+
+        function convertToISO(dateStr) {
+            if (!dateStr) return '';
+            // ถ้าเป็นรูปแบบ YYYY-MM-DD อยู่แล้ว (เช่นจาก localStorage) ให้คืนค่าเดิม
+            if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr;
+            let parts = dateStr.split('/');
+            if (parts.length === 3) {
+                let [day, month, year] = parts;
+                if (day && month && year && day.length===2 && month.length===2 && year.length===4) {
+                    return `${year}-${month}-${day}`;
+                }
+            }
+            return '';
+        }
+
+        // ======================== Core Algorithm ========================
         function reduceToSingleDigit(num) { while(num>9){let s=0;while(num>0){s+=num%10;num=Math.floor(num/10);}num=s;}return num; }
         function calculateDestinyNumberTwoDigit(numberStr) {
             let str = numberStr.replace(/\D/g,'');
@@ -672,7 +693,32 @@
         }
         function escapeHtml(str){return str.replace(/[&<>]/g,function(m){if(m==='&')return '&amp;';if(m==='<')return '&lt;';if(m==='>')return '&gt;';return m;});}
         function saveToLocalStorage(nickname,birthDate,birthTime,destiny,lifePath){let h=[];try{const e=localStorage.getItem('mlq_profile_history');if(e)h=JSON.parse(e);}catch(e){}h.unshift({nickname,birthDate,birthTime,destiny,lifePath,timestamp:new Date().toISOString()});if(h.length>10)h.pop();localStorage.setItem('mlq_profile_history',JSON.stringify(h));localStorage.setItem('mlq_last_profile',JSON.stringify(h[0]));}
-        document.getElementById('lifePathForm').addEventListener('submit',(e)=>{e.preventDefault();const nickname=document.getElementById('nickname').value.trim()||"นักเดินทาง",birthDate=document.getElementById('birthDate').value,birthTime=document.getElementById('birthTime').value||"12:00";if(!birthDate){alert("กรุณากรอกวันเกิด");return;}const{destiny,lifePath}=calculateLifePathFromDateTime(birthDate,birthTime);saveToLocalStorage(nickname,birthDate,birthTime,destiny,lifePath);displayResult(nickname,destiny,lifePath);document.getElementById('resultContainer').scrollIntoView({behavior:'smooth',block:'start'});});
+
+        // Event listener สำหรับ auto-format วันเกิด
+        document.getElementById('birthDate').addEventListener('input', function(e) {
+            formatDateInput(this);
+        });
+
+        // จัดการ submit form
+        document.getElementById('lifePathForm').addEventListener('submit', (e)=>{
+            e.preventDefault();
+            const nickname = document.getElementById('nickname').value.trim() || "นักเดินทาง";
+            const rawBirthDate = document.getElementById('birthDate').value;
+            const birthTime = document.getElementById('birthTime').value || "12:00";
+            if(!rawBirthDate){ alert("กรุณากรอกวันเกิด"); return; }
+            
+            const birthDate = convertToISO(rawBirthDate);
+            if(!birthDate){
+                alert("รูปแบบวันเกิดไม่ถูกต้อง (กรุณาใช้ DD/MM/YYYY เช่น 28/01/2015)");
+                return;
+            }
+            
+            const { destiny, lifePath } = calculateLifePathFromDateTime(birthDate, birthTime);
+            saveToLocalStorage(nickname, birthDate, birthTime, destiny, lifePath);
+            displayResult(nickname, destiny, lifePath);
+            document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
         function startNotionAnimation(){const progressFill=document.getElementById('animatedProgressFill'),percentSpan=document.getElementById('notionLivePercent'),task1Val=document.getElementById('task1Val'),task2Val=document.getElementById('task2Val'),task3Val=document.getElementById('task3Val'),bars=document.querySelectorAll('#ecosystem .smooth-progress');if(!progressFill)return;setInterval(()=>{const newPercent=Math.floor(Math.random()*30)+55;progressFill.style.width=newPercent+'%';if(percentSpan)percentSpan.innerText=newPercent+'%';const r1=Math.floor(Math.random()*30)+45,r2=Math.floor(Math.random()*40)+30,r3=Math.floor(Math.random()*20)+70;if(task1Val)task1Val.innerText=r1+'%';if(task2Val)task2Val.innerText=r2+'%';if(task3Val)task3Val.innerText=r3+'%';if(bars[0])bars[0].style.width=r1+'%';if(bars[1])bars[1].style.width=r2+'%';if(bars[2])bars[2].style.width=r3+'%';},3800);}
         startNotionAnimation();
         document.getElementById('globalMusicPreviewBtn')?.addEventListener('click',()=>{playMusicByLifePath(currentDynamicLifePath);});
