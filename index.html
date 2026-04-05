@@ -253,9 +253,10 @@
                         แล้วเริ่ม <span class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">“สร้าง” มันผ่านรหัสชีวิต</span>
                     </h1>
                     <p class="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto md:mx-0 mt-5 animate-fade-slide delay-100 hero-sub">
-                        เมื่อเดินตามเส้นทางชีวิต จึงควรคิดใหญ่ ให้เป็น — เพราะนี่คือยุคที่มีเครื่องมือ 
-                        <strong class="text-gray-800">คานผ่อนแรง (Leverage)</strong> มากมาย 
-                        เพื่อดึงศักยภาพที่ซ่อนอยู่ออกมาในทุกย่างก้าว
+                        Mission MLQ เป็นเพื่อนช่วยคุณค้นหาวิธี
+                        <strong class="text-gray-800">สร้างสภาพแวดล้อมให้เหมาะสมกับภารกิจ</strong> —
+                        เพื่อบรรลุเป้าหมายด้วยกิจวัฏประจำวัน และ
+                        <strong class="text-gray-800">คานผ่อนแรง (Leverage)</strong> ที่ใช่ในช่วงเวลานั้น
                     </p>
                     <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-fade-slide delay-200 hero-cta-wrap">
                         <a href="#mlq-analyzer" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold shadow-md inline-flex items-center justify-center gap-2 pulse-btn hover:shadow-lg transition">
@@ -322,33 +323,21 @@
                     <div class="text-center mb-6">
                         <span class="text-xs font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full"><i class="fa-regular fa-star-of-life mr-1"></i> Life Path 1-9 (ไม่มี Master Number)</span>
                         <h2 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text text-transparent mt-2">✨ รหัสชีวิต → ทักษะ → แผน 90 วัน</h2>
-                        <p class="text-gray-500 mt-2">กรอกวันเกิดและเวลาเกิด (โดยประมาณ) รับ <strong class="text-amber-600">Mission (2 หลัก)</strong> และ <strong class="text-indigo-600">Life Path (1–9)</strong> พร้อมทักษะที่ควรพัฒนา ฟรี! 🎯</p>
                     </div>
-                    <form id="lifePathForm" class="space-y-5">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1"><i class="fa-regular fa-user mr-1 text-indigo-400"></i> ชื่อเล่น (หรือชื่อที่อยากให้เรียก)</label>
-                            <input type="text" id="nickname" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 text-base bg-gray-50/50" placeholder="เช่น ภีม, มาร์ค, แอนนา">
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <!-- วันเกิด (เปลี่ยนเป็น text field สำหรับ iOS ป้องกันปี พ.ศ. สับสน) -->
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1"><i class="fa-regular fa-calendar mr-1 text-indigo-400"></i> วันเกิด <span class="text-red-500">*</span></label>
-                                <input type="text" id="birthDate" required placeholder="DD/MM/YYYY" 
-                                       class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-300 text-base bg-gray-50/50">
-                                <p class="text-xs text-gray-400 mt-1">รูปแบบ วัน/เดือน/ปี ค.ศ. เช่น 28/01/2015</p>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1"><i class="fa-regular fa-clock mr-1 text-indigo-400"></i> เวลาเกิด (โดยประมาณ)</label>
-                                <input type="time" id="birthTime" value="6:30" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-300 text-base bg-gray-50/50">
-                                <p class="text-xs text-gray-400 mt-1">ถ้าไม่แน่ใจ ให้ใช้ 6:30 น.(เช้าวันใหม่)</p>
-                            </div>
-                        </div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95 text-lg">
-                            <i class="fa-regular fa-compass"></i> ดูพิมพ์เขียวของฉัน
-                        </button>
-                    </form>
-                    <div id="resultContainer" class="mt-6 hidden transition-all duration-500"></div>
-                </div>
+                    
+                    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                      <iframe 
+                        src="https://127.0.0.1:8010/product/MLQ/MLQ-Music/Basic/index2.html?v=1.00" 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
+                            sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"   
+                            allow="autoplay; encrypted-media ;allow-forms"      
+                            allowfullscreen>
+                      </iframe>
+                    </div>
+                    <p style="text-align: center; font-family: sans-serif; color: #666; margin-top: 10px;">
+                          🎵 <i>สัมผัสคลื่นเสียงจากรหัสชีวิตเพื่อสร้างสมาธิและการจดจ่อ (Immersion)</i>
+                    </p>
+               </div>
             </div>
         </div>
     </section>
@@ -363,11 +352,110 @@
             </div>
             <div class="grid md:grid-cols-2 gap-10 items-center">
                 <div>
-                    <p class="text-gray-700 leading-relaxed mb-4">เราไม่เน้นคำสอนที่น่าเบื่อ (No Blah Blah Blah) แต่เน้น <strong>“ภารกิจชีวิต”</strong> ที่ปรับตามช่วงวัย และใช้ <strong>คานผ่อนแรง</strong> เพื่อให้การเคลื่อนไหวเป็นส่วนหนึ่งของชีวิตอย่างยั่งยืน</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">Mission‑MLQ ไม่ใช่แค่คำสอน (No Blah Blah Blah) — แต่เป็นเครื่องมือช่วยคุณค้นหาวิธี <strong>"สร้างสภาพแวดล้อมให้เหมาะสมกับภารกิจ"</strong> เพื่อให้มันกลายเป็นกิจวัฏประจำวัน ที่ทำได้แบบไม่ฝืนใจ ไม่ตึงเครียด</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">หัวใจของคานผ่อนแรงคือ <strong>ปรับสภาพแวดล้อม</strong> — สถานที่ ช่วงเวลา ผู้คน เครื่องมือ — ให้ซึมซับ เกิดความเคยชิน แล้วค่อยๆ ไต่ระดับขึ้นไปทีละขั้น จนรู้สึกว่าภารกิจนั้นคือกิจวัฏที่ทำอยู่ทุกวัน</p>
                     <p class="text-gray-700 leading-relaxed">Mission‑MLQ สร้างพื้นที่ให้คุณได้ <strong>Check Human Dignity</strong> ผ่าน Mission Log, เสียงเพลงจากรหัสชีวิต และชุมชนที่เข้าใจ</p>
-                    <div class="mt-6 flex flex-wrap gap-3">
-                        <a href="blueprint.html" class="inline-flex items-center gap-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full transition"><i class="fa-regular fa-book-open"></i> อ่านคู่มือ LifeQuest Blueprint</a>
-                        <a href="Docs/Mission-MLQ-LifeQuest-Blueprint.pdf" download class="inline-flex items-center gap-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full transition"><i class="fa-regular fa-file-pdf"></i> ดาวน์โหลด PDF/DOCX</a>
+                    
+
+                    <!-- ===== Digital Blueprint (Interactive + SEO) ===== -->
+                    <div class="mt-16 pt-8  border-gray-200">
+                        <div class="text-center mt-3 mb-3">
+                            <h2 class="text-3xl font-bold text-gray-800 section-h2">📖 Digital Blueprint: พิมพ์เขียวภารกิจชีวิต</h2>
+                            <p class="text-gray-500 mt-2">กดอ่านเนื้อหาสำคัญ – ไม่ต้องดาวน์โหลด อ่านได้ทันที</p>
+                        </div>
+                        <div class="space-y-4">
+                            <!-- บทที่ 1 -->
+                            <details class="group border border-gray-200 rounded-xl p-4 hover:bg-gray-50/50 transition-all cursor-pointer">
+                                <summary class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                                    <span>บทที่ 1: ก้าวแรกไม่ต้องสมบูรณ์ (The Awakening)</span>
+                                    <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-500"></i>
+                                </summary>
+                                <div class="mt-4 text-gray-600 leading-relaxed space-y-3">
+                                    <p><strong class="text-gray-800">ปรัชญาหลัก:</strong> “ก้าวแรกไม่ต้องสมบูรณ์ ทำสิ่งที่พอทำได้ในตอนนี้ ถ้าผิดก็ปรับจูนใหม่ เราไม่ล้มเลิก เพราะนี่คือเส้นทางของเรา”</p>
+                                    <p>การเริ่มต้นไม่จำเป็นต้องสมบูรณ์แบบ ความผิดพลาดคือข้อมูลเพื่อการพัฒนา ไม่ใช่ตราบาป สังคมมักบีบให้เราออกนอกเส้นทางเดิมของตัวเอง จนรู้สึกว่าชีวิตไม่ราบรื่น ถ้าเป็นเช่นนั้น… บางทีถึงเวลาทำความเข้าใจ “เส้นทางชีวิต” ของตัวเองอีกครั้ง</p>
+                                    <ul class="list-disc pl-5 space-y-1">
+                                        <li><strong>Action over Patterns:</strong> ความสำเร็จมาจากการลงมือทำที่ถูกจังหวะ ไม่ใช่การคาดเดา</li>
+                                        <li><strong>สร้างสภาพแวดล้อมให้เหมาะสมกับภารกิจ:</strong> ปรับกิจวัฏ สถานที่ ผู้คน เครื่องมือ ให้สนับสนุนภารกิจแบบไม่ฝืน — ทุกอย่างที่ดูยากสำหรับคนอื่น จะเป็นเรื่องง่ายเพราะมันคือกิจวัฏที่ทำอยู่ทุกวัน</li>
+                                        <li><strong>Pinnacle Logic:</strong> ปรับพฤติกรรมตามช่วงวัย – แต่ละ Pinnacle มีภารกิจเฉพาะ และคานผ่อนแรงที่เหมาะสมต่างกัน</li>
+                                    </ul>
+                                    <div class="bg-amber-50 p-3 rounded-lg italic text-sm">✨ Story: ลูกชายพูด native English ได้โดยไม่เคยเรียนอินเตอร์ — ใช้คลิป YouTube ที่ลูกชอบวันละ 30-60 นาที เป็นคานผ่อนแรง สร้างสภาพแวดล้อมให้ซึมซับภาษาแบบสนุก ไม่กดดัน ไม่บังคับ — เด็กเริ่มพูดตามเองตามธรรมชาติ</div>
+                                </div>
+                            </details>
+                            <!-- บทที่ 2 -->
+                            <details class="group border border-gray-200 rounded-xl p-4 hover:bg-gray-50/50 transition-all cursor-pointer">
+                                <summary class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                                    <span>บทที่ 2: ภารกิจตามช่วงวัย & Leverage ที่แท้จริง</span>
+                                    <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-500"></i>
+                                </summary>
+                                <div class="mt-4 text-gray-600 leading-relaxed space-y-3">
+                                    <p>ระบบการศึกษาสร้างกรอบคิดเส้นทางเดียว: เรียน→ทำงาน→มีครอบครัว→ซื้อบ้าน→วนลูป แต่ Pinnacle แต่ละช่วงวัยมีภารกิจแตกต่างกัน</p>
+                                    <p><strong>ตัวอย่างวัยกลางคน→ปลายวัย:</strong> ร่างกายเปลี่ยน แต่พฤติกรรมยังเหมือนเดิม → น้ำหนักขึ้น โรคเรื้อรัง ลองผิดวิธีซ้ำแล้วซ้ำเล่า ที่แท้จริงคือ “ใช้ Leverage ผิดภารกิจ”</p>
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full bg-white border rounded-lg text-sm">
+                                            <thead class="bg-gray-100"><tr><th class="p-2 text-left">แทนที่</th><th class="p-2 text-left">Leverage ที่ถูกต้อง</th></tr></thead>
+                                            <tbody>
+                                                <tr class="border-t"><td class="p-2">ขับรถไปซื้อของ</td><td class="p-2">เดินไปร้านสะดวกซื้อช่วงแดดไม่ร้อน → ใช้กิจวัตรเป็นแรง</td></tr>
+                                                <tr class="border-t"><td class="p-2">ลดอาหารเข้มงวด</td><td class="p-2">เลือกอาหารพลังงานต่ำ + น้ำ 2 ลิตร/วัน → ไม่อดอาหาร</td></tr>
+                                                <tr class="border-t"><td class="p-2">ออกกำลังกายหนัก</td><td class="p-2">เพิ่มโปรตีน + เคลื่อนไหวในกิจวัตรปกติ</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <p class="mt-2">ผลลัพธ์: ไม่รู้สึกฝืน → ทำต่อเนื่อง → ไม่เลิกกลางทาง → สำเร็จจริง</p>
+                                    <p class="italic text-amber-700">“ถ้าคุณอ่านถึงตรงนี้ แสดงว่าคุณยังมองหาหนทางอยู่ Mission MLQ จะชี้ให้คุณรู้ว่าเวลานี้อะไรคือสิ่งที่พอทำได้”</p>
+                                    <div class="bg-orange-50 border-l-4 border-orange-400 p-3 rounded-lg text-sm mt-3">
+                                        <p class="font-semibold text-orange-800 mb-1">🔑 หัวใจของคานผ่อนแรง</p>
+                                        <ul class="list-disc pl-4 space-y-1 text-gray-700">
+                                            <li>รู้สึกเหมือนเป็น<strong>กิจวัฏที่ต้องทำ</strong> และทำได้แบบไม่ฝืนใจ ไม่ตึงเครียด</li>
+                                            <li>ไปให้ถึงเป้าหมาย<strong>แบบสนุกสนานและประทับใจ</strong></li>
+                                            <li>ทุกอย่างที่ดูยากสำหรับคนอื่น จะเป็น<strong>เรื่องง่าย</strong>เพราะมันคือกิจวัฏประจำวัน</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </details>
+                            <!-- บทที่ 3 – Skill Map -->
+                            <details class="group border border-gray-200 rounded-xl p-4 hover:bg-gray-50/50 transition-all cursor-pointer">
+                                <summary class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                                    <span>บทที่ 3: Human Logic Engine — รหัสทักษะธรรมชาติ</span>
+                                    <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-500"></i>
+                                </summary>
+                                <div class="mt-4 text-gray-600 leading-relaxed space-y-3">
+                                    <p>ระบบวิเคราะห์ข้อมูลพฤติกรรมเพื่อระบุรหัสทักษะธรรมชาติ และวางแผน Personalized Learning Path</p>
+                                    <p><strong>ตัวอย่างรหัสทักษะ 2/29 (เวลา 01:00 28/01/2015):</strong> รหัส 2 = The Connector (สื่อสาร, เข้าอกเข้าใจ) / รหัส 9 = นักมนุษยธรรม (ใจกว้าง, ช่วยสังคม) → Mission 29 = สะพานเชื่อมคนและโอกาสเพื่อช่วยสังคม</p>
+                                    <p><strong>Action Guide 3 เดือน:</strong> ฝึกการฟัง, Negotiation, การสื่อสารข้ามกลุ่ม — ใช้เครื่องมือดิจิทัลสร้างเครือข่ายมากกว่าฝืนทำงานคนเดียว</p>
+                                    <p><strong>Skill Map 1–9 ฉบับย่อ:</strong> ผู้นำ, ผู้เชื่อมต่อ, นักสร้างสรรค์, นักสร้างระบบ, นักผจญภัย, ผู้ออกแบบสภาพแวดล้อม, นักค้นคว้า, นักพลังงาน, นักมนุษยธรรม — แต่ละรหัสมี Leverage และอาชีพ Skill-Based ที่เหมาะสม</p>
+                                    <div class="bg-indigo-50 p-3 rounded-lg text-sm">
+                                        <p class="font-semibold">💡 สำหรับพ่อแม่: Skill Map ช่วยตอบว่า “ลูกถนัดอะไร”, “ลูกสมาธิสั้นหรือเปล่า (อธิบาย pattern พลังงาน)”, “อาชีพอนาคตลูก”, “วางแผน 3 เดือนอย่างไร”</p>
+                                    </div>
+                                </div>
+                            </details>
+                            <!-- บทที่ 5–7 -->
+                            <details class="group border border-gray-200 rounded-xl mb-5 p-4 hover:bg-gray-50/50 transition-all cursor-pointer">
+                                <summary class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                                    <span>บทที่ 5–7: Life Simulator & Mission Log</span>
+                                    <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-500"></i>
+                                </summary>
+                                <div class="mt-4 text-gray-600 leading-relaxed space-y-3">
+                                    <p><strong>Life Simulator (Roblox / Minecraft):</strong> ภารกิจ 80% สนุก + 20% Skill → เด็กไม่เลิกกลางทาง เพราะมันสนุก ฝึกทักษะผ่านเกมโดยไม่รู้ตัว</p>
+                                    <p><strong>Personalized Skill Quest</strong> ตามรหัส (เช่น รหัส 1: ผู้กู้ชีพเกาะลอยฟ้า, รหัส 6: ผู้จัดการเมืองอัจฉริยะ, รหัส 9: ผู้ฟื้นฟูโลก)</p>
+                                    <p><strong>Mission Log – Human Dignity:</strong> บันทึก “วันนี้ทำอะไรพลาด → เรียนรู้อะไร → กลับมาเริ่มใหม่ยังไง” ทักษะสำคัญที่สุดคือการลุกได้เร็ว ไม่ใช่การไม่ล้ม</p>
+                                    <p><strong>Parent Dashboard – พ่อแม่โหมดเพื่อน:</strong> Best Friend Mode (คำเตือนสั้น ฮา), Reliable Friend Mode (รับฟัง), Mission Control (สังเกตจากระยะห่าง), No Blah Blah Blah</p>
+                                    <p><strong>MLQ-Music:</strong> Focus Frequency จาก DNA รหัสชีวิต → เข้าสู่ Flow State (Oxytocin + Dopamine)</p>
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- Download full PDF CTA -->
+                        <div class="mt-12 text-center px-4">
+                            <a href="Docs/Mission-MLQ-LifeQuest-Blueprint.pdf" target="_blank" 
+                               class="inline-flex items-center justify-center rounded-full font-bold shadow-lg hover:scale-105 transition-all pulse-btn w-fit mx-auto border-2 border-transparent"
+                               style="background: linear-gradient(105deg, #f97316, #ec489a); color: white; padding: 12px 40px; min-width: 280px; display: inline-flex;">
+                                <i class="fa-solid fa-file-pdf text-xl shrink-0 mr-3"></i>
+                                <span class="text-sm sm:text-base whitespace-nowrap">รับพิมพ์เขียวฉบับสมบูรณ์ (PDF)</span>
+                            </a>
+                            <p class="text-[10px] sm:text-xs text-gray-400 mt-4 leading-relaxed">
+                                ดาวน์โหลดเอกสารเพื่ออ่านแบบออฟไลน์ <br class="sm:hidden"> หรือแชร์กับครอบครัว
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-5 shadow-sm border border-amber-100">
@@ -385,7 +473,7 @@
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="text-center mb-10">
                 <h2 class="text-2xl md:text-4xl font-bold text-gray-800 section-h2">Leverage Tools · คานผ่อนแรงที่เปลี่ยนชีวิต</h2>
-                <p class="text-gray-500 mt-2">ใช้เครื่องมือที่ทรงพลังเพื่อเดินบนเส้นทางของตัวเอง</p>
+                <p class="text-gray-500 mt-2">เครื่องมือที่ช่วยคุณ<strong class="text-gray-700">สร้างสภาพแวดล้อมให้เหมาะสมกับภารกิจ</strong> — เพื่อบรรลุเป้าหมายด้วยกิจวัฏประจำวัน</p>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 ecosystem-grid">
                 <!-- MLQ-Path -->
@@ -393,7 +481,7 @@
                     <img src="images/MLQ-Path.png" alt="MLQ-Path preview" class="w-full h-40 object-cover rounded-xl mb-4" onerror="this.style.display='none'">
                     <div class="flex justify-center mb-4"><div class="bg-gradient-to-br from-gray-50 to-white p-4 rounded-2xl shadow-md"><img src="images/Logo_MLQ-Path.png" alt="MLQ-Path Logo" class="logo-pillar"></div></div>
                     <h3 class="text-2xl font-bold mb-2">MLQ‑Path</h3>
-                    <p class="text-gray-500 text-sm mb-2">Notion Template · Roadmap เฉพาะบุคคล</p>
+                    <p class="text-gray-500 text-sm mb-2">Notion Template · ศูนย์กลางภารกิจครอบครัว</p>
                     <div class="mt-3 bg-gray-50 rounded-xl p-3 text-left border border-gray-200">
                         <div class="flex justify-between text-xs font-semibold text-gray-600 mb-1"><span>📌 ภารกิจวันนี้</span><span id="notionLivePercent">68%</span></div>
                         <div class="w-full bg-gray-200 rounded-full h-2 mb-3 overflow-hidden"><div id="animatedProgressFill" class="h-full rounded-full live-progress-bar" style="width: 68%; transition: width 0.5s ease"></div></div>
@@ -411,7 +499,7 @@
                     <div class="flex justify-center mb-4"><div class="bg-gradient-to-br from-gray-50 to-white p-4 rounded-2xl shadow-md"><img src="images/Logo_MLQ-Studio.png" alt="MLQ-Studio Logo" class="logo-pillar"></div></div>
                     <h3 class="text-2xl font-bold mb-2">MLQ‑Studio</h3>
                     <p class="text-gray-500 text-sm mb-2">Roblox / Minecraft · Life Simulator</p>
-                    <p class="text-gray-600 text-sm">อุปสรรคชีวิตกลายเป็นเกม สนุก 80% เรียนรู้ 20% — ฝึกทักษะโดยไม่รู้ตัว</p>
+                    <p class="text-gray-600 text-sm">จำลองสถานการณ์อาชีพ ให้น้องๆ ซึมซับสภาพแวดล้อมของภารกิจ — สนุก 80% เรียนรู้ 20% ฝึกทักษะโดยไม่รู้ตัว</p>
                 </div>
                 <!-- MLQ-Music with DNA audio -->
                 <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100 skill-card text-center">
@@ -422,7 +510,7 @@
                     <button id="globalMusicPreviewBtn" class="mt-2 bg-rose-50 hover:bg-rose-100 text-rose-700 px-5 py-2 rounded-full text-sm font-medium flex items-center gap-2 mx-auto transition active:scale-95 border border-rose-200">
                         <i class="fa-solid fa-headphones"></i> Listen to your DNA (15s)
                     </button>
-                    <p class="text-gray-600 text-sm mt-3">คลื่นเสียงเพื่อการฟื้นฟูเยียวยา สงบ และกลับเข้าสู่เส้นทาง</p>
+                    <p class="text-gray-600 text-sm mt-3">ซึมซับภารกิจแบบผ่อนคลาย ผ่าน Focus Frequency จาก DNA รหัสชีวิต — สร้าง Flow State เพื่อกลับเข้าสู่เส้นทาง</p>
                 </div>
             </div>
         </div>
@@ -434,7 +522,7 @@
             <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-6 md:p-8 shadow-sm border border-indigo-100">
                 <div class="flex flex-col md:flex-row gap-6 items-start copilot-wrap">
                     <div class="shrink-0 w-full md:w-1/3 copilot-img"><img src="images/MLQ_AI_Co-Pilot.png" alt="AI Co-Pilot" class="rounded-xl shadow-md" onerror="this.style.display='none'"></div>
-                    <div class="flex-1"><h2 class="text-2xl md:text-3xl font-bold text-gray-800 section-h2">มี AI เป็นผู้ช่วยตัดสินใจ (Decision AI Coaching)</h2><p class="text-gray-600 mt-2">“เมื่อรหัสชีวิต ไม่ใช่แค่ตัวเลข… แต่คือ Data ที่ใช้ตัดสินใจเพื่อชัยชนะ”</p><ul class="mt-4 space-y-2 text-gray-700"><li class="flex gap-2"><i class="fa-regular fa-chart-line text-indigo-500 mt-1"></i> <strong>จังหวะชีวิตที่แม่นยำ</strong> — วิเคราะห์ช่วงเวลาควรรุกหรือพัก</li><li class="flex gap-2"><i class="fa-regular fa-message text-indigo-500 mt-1"></i> <strong>เกราะคุ้มกันศักดิ์ศรีความเป็นมนุษย์</strong> — Failure Log Analysis</li><li class="flex gap-2"><i class="fa-regular fa-compass text-indigo-500 mt-1"></i> <strong>คานผ่อนแรงสู่ความสำเร็จ</strong> — Skill Mapping เชื่อมโยงกิจกรรมในชีวิต</li></ul><div class="mt-5"><a href="#mlq-analyzer" class="inline-flex items-center gap-2 bg-gray-800 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-900 transition">ติดตั้ง Life Operating System (LOS) <i class="fa-regular fa-arrow-right"></i></a></div></div>
+                    <div class="flex-1"><h2 class="text-2xl md:text-3xl font-bold text-gray-800 section-h2">มี AI เป็นผู้ช่วยตัดสินใจ (Decision AI Coaching)</h2><p class="text-gray-600 mt-2">“เมื่อรหัสชีวิต ไม่ใช่แค่ตัวเลข… แต่คือ Data ที่ใช้<strong>ออกแบบสภาพแวดล้อมและคานผ่อนแรง</strong>ให้เหมาะกับภารกิจของคุณ”</p><ul class="mt-4 space-y-2 text-gray-700"><li class="flex gap-2"><i class="fa-regular fa-chart-line text-indigo-500 mt-1"></i> <strong>จังหวะชีวิตที่แม่นยำ</strong> — วิเคราะห์ช่วงเวลาควรรุกหรือพัก</li><li class="flex gap-2"><i class="fa-regular fa-message text-indigo-500 mt-1"></i> <strong>เกราะคุ้มกันศักดิ์ศรีความเป็นมนุษย์</strong> — Failure Log Analysis</li><li class="flex gap-2"><i class="fa-regular fa-compass text-indigo-500 mt-1"></i> <strong>คานผ่อนแรงสู่ความสำเร็จ</strong> — Skill Mapping เชื่อมโยงกิจกรรมในชีวิต</li></ul><div class="mt-5"><a href="#mlq-analyzer" class="inline-flex items-center gap-2 bg-gray-800 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-900 transition">ติดตั้ง Life Operating System (LOS) <i class="fa-regular fa-arrow-right"></i></a></div></div>
                 </div>
             </div>
         </div>
@@ -445,7 +533,7 @@
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="text-center mb-8">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-800 section-h2">พ่อแม่โหมดเพื่อนสนิท · ชุมชนที่เข้าใจ</h2>
-                <p class="text-gray-500 mt-2">สังเกตและซัพพอร์ตลูกให้ถูกจุด โดยไม่ต้องบ่น (No Blah Blah Blah)</p>
+                <p class="text-gray-500 mt-2">สังเกตและซัพพอร์ตลูกให้ถูกจุด ช่วยกันสร้างสภาพแวดล้อมที่เหมาะสม โดยไม่ต้องบ่น (No Blah Blah Blah)</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="bg-gradient-to-br from-rose-50 to-amber-50 rounded-2xl p-6 shadow-md border border-rose-100 transition hover:shadow-lg">
@@ -473,101 +561,6 @@
         </div>
     </section>
 
-    <!-- ================= DIGITAL BLUEPRINT SECTION (Interactive + SEO) ================= -->
-    <section class="py-16 bg-white" id="blueprint">
-        <div class="container mx-auto px-4 max-w-4xl mb-5">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-gray-800 section-h2">📖 Digital Blueprint: พิมพ์เขียวภารกิจชีวิต</h2>
-                <p class="text-gray-500 mt-2">กดอ่านเนื้อหาสำคัญ – ไม่ต้องดาวน์โหลด อ่านได้ทันที</p>
-            </div>
-            <div class="space-y-4">
-                <!-- บทที่ 1 -->
-                <details class="group border border-gray-200 rounded-xl p-4 hover:bg-gray-50/50 transition-all cursor-pointer">
-                    <summary class="flex justify-between items-center font-semibold text-lg text-gray-800">
-                        <span>บทที่ 1: ก้าวแรกไม่ต้องสมบูรณ์ (The Awakening)</span>
-                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-500"></i>
-                    </summary>
-                    <div class="mt-4 text-gray-600 leading-relaxed space-y-3">
-                        <p><strong class="text-gray-800">ปรัชญาหลัก:</strong> “ก้าวแรกไม่ต้องสมบูรณ์ ทำสิ่งที่พอทำได้ในตอนนี้ ถ้าผิดก็ปรับจูนใหม่ เราไม่ล้มเลิก เพราะนี่คือเส้นทางของเรา”</p>
-                        <p>การเริ่มต้นไม่จำเป็นต้องสมบูรณ์แบบ ความผิดพลาดคือข้อมูลเพื่อการพัฒนา ไม่ใช่ตราบาป สังคมมักบีบให้เราออกนอกเส้นทางเดิมของตัวเอง จนรู้สึกว่าชีวิตไม่ราบรื่น ถ้าเป็นเช่นนั้น… บางทีถึงเวลาทำความเข้าใจ “เส้นทางชีวิต” ของตัวเองอีกครั้ง</p>
-                        <ul class="list-disc pl-5 space-y-1">
-                            <li><strong>Action over Patterns:</strong> ความสำเร็จมาจากการลงมือทำที่ถูกจังหวะ ไม่ใช่การคาดเดา</li>
-                            <li><strong>Pinnacle Logic:</strong> ปรับพฤติกรรมตามช่วงวัย – แต่ละ Pinnacle มีภารกิจเฉพาะ</li>
-                            <li><strong>การจัดการทรัพยากร:</strong> เมื่อขาดแคลนปัจจัยสี่ → ภารกิจคือหาเงินให้พอกินพอใช้; เมื่อไม่ขาดแต่รู้สึกขาด → ภารกิจคือฝึกจิตใจ</li>
-                        </ul>
-                        <div class="bg-amber-50 p-3 rounded-lg italic text-sm">✨ Story: ลูกชายพูด native English ได้โดยไม่เคยเรียนอินเตอร์ เพราะกล้าลองผิดลองถูก และสภาพแวดล้อมที่เหมาะสม</div>
-                    </div>
-                </details>
-                <!-- บทที่ 2 (ตัวอย่างเพิ่ม) -->
-                <details class="group border border-gray-200 rounded-xl p-4 hover:bg-gray-50/50 transition-all cursor-pointer">
-                    <summary class="flex justify-between items-center font-semibold text-lg text-gray-800">
-                        <span>บทที่ 2: ภารกิจตามช่วงวัย & Leverage ที่แท้จริง</span>
-                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-500"></i>
-                    </summary>
-                    <div class="mt-4 text-gray-600 leading-relaxed space-y-3">
-                        <p>ระบบการศึกษาสร้างกรอบคิดเส้นทางเดียว: เรียน→ทำงาน→มีครอบครัว→ซื้อบ้าน→วนลูป แต่ Pinnacle แต่ละช่วงวัยมีภารกิจแตกต่างกัน</p>
-                        <p><strong>ตัวอย่างวัยกลางคน→ปลายวัย:</strong> ร่างกายเปลี่ยน แต่พฤติกรรมยังเหมือนเดิม → น้ำหนักขึ้น โรคเรื้อรัง ลองผิดวิธีซ้ำแล้วซ้ำเล่า ที่แท้จริงคือ “ใช้ Leverage ผิดภารกิจ”</p>
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full bg-white border rounded-lg text-sm">
-                                <thead class="bg-gray-100"><tr><th class="p-2 text-left">แทนที่</th><th class="p-2 text-left">Leverage ที่ถูกต้อง</th></tr></thead>
-                                <tbody>
-                                    <tr class="border-t"><td class="p-2">ขับรถไปซื้อของ</td><td class="p-2">เดินไปร้านสะดวกซื้อช่วงแดดไม่ร้อน → ใช้กิจวัตรเป็นแรง</td></tr>
-                                    <tr class="border-t"><td class="p-2">ลดอาหารเข้มงวด</td><td class="p-2">เลือกอาหารพลังงานต่ำ + น้ำ 2 ลิตร/วัน → ไม่อดอาหาร</td></tr>
-                                    <tr class="border-t"><td class="p-2">ออกกำลังกายหนัก</td><td class="p-2">เพิ่มโปรตีน + เคลื่อนไหวในกิจวัตรปกติ</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="mt-2">ผลลัพธ์: ไม่รู้สึกฝืน → ทำต่อเนื่อง → ไม่เลิกกลางทาง → สำเร็จจริง</p>
-                        <p class="italic text-amber-700">“ถ้าคุณอ่านถึงตรงนี้ แสดงว่าคุณยังมองหาหนทางอยู่ Mission MLQ จะชี้ให้คุณรู้ว่าเวลานี้อะไรคือสิ่งที่พอทำได้”</p>
-                    </div>
-                </details>
-                <!-- บทที่ 3 – Skill Map -->
-                <details class="group border border-gray-200 rounded-xl p-4 hover:bg-gray-50/50 transition-all cursor-pointer">
-                    <summary class="flex justify-between items-center font-semibold text-lg text-gray-800">
-                        <span>บทที่ 3: Human Logic Engine — รหัสทักษะธรรมชาติ</span>
-                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-500"></i>
-                    </summary>
-                    <div class="mt-4 text-gray-600 leading-relaxed space-y-3">
-                        <p>ระบบวิเคราะห์ข้อมูลพฤติกรรมเพื่อระบุรหัสทักษะธรรมชาติ และวางแผน Personalized Learning Path</p>
-                        <p><strong>ตัวอย่างรหัสทักษะ 2/29 (เวลา 01:00 28/01/2015):</strong> รหัส 2 = The Connector (สื่อสาร, เข้าอกเข้าใจ) / รหัส 9 = นักมนุษยธรรม (ใจกว้าง, ช่วยสังคม) → Mission 29 = สะพานเชื่อมคนและโอกาสเพื่อช่วยสังคม</p>
-                        <p><strong>Action Guide 3 เดือน:</strong> ฝึกการฟัง, Negotiation, การสื่อสารข้ามกลุ่ม — ใช้เครื่องมือดิจิทัลสร้างเครือข่ายมากกว่าฝืนทำงานคนเดียว</p>
-                        <p><strong>Skill Map 1–9 ฉบับย่อ:</strong> ผู้นำ, ผู้เชื่อมต่อ, นักสร้างสรรค์, นักสร้างระบบ, นักผจญภัย, ผู้ออกแบบสภาพแวดล้อม, นักค้นคว้า, นักพลังงาน, นักมนุษยธรรม — แต่ละรหัสมี Leverage และอาชีพ Skill-Based ที่เหมาะสม</p>
-                        <div class="bg-indigo-50 p-3 rounded-lg text-sm">
-                            <p class="font-semibold">💡 สำหรับพ่อแม่: Skill Map ช่วยตอบว่า “ลูกถนัดอะไร”, “ลูกสมาธิสั้นหรือเปล่า (อธิบาย pattern พลังงาน)”, “อาชีพอนาคตลูก”, “วางแผน 3 เดือนอย่างไร”</p>
-                        </div>
-                    </div>
-                </details>
-                <!-- เนื้อหาเพิ่มเติมอีก 1–2 บท (Life Simulator / Mission Log) -->
-                <details class="group border border-gray-200 rounded-xl mb-5 p-4 hover:bg-gray-50/50 transition-all cursor-pointer">
-                    <summary class="flex justify-between items-center font-semibold text-lg text-gray-800">
-                        <span>บทที่ 5–7: Life Simulator & Mission Log</span>
-                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-500"></i>
-                    </summary>
-                    <div class="mt-4 text-gray-600 leading-relaxed space-y-3">
-                        <p><strong>Life Simulator (Roblox / Minecraft):</strong> ภารกิจ 80% สนุก + 20% Skill → เด็กไม่เลิกกลางทาง เพราะมันสนุก ฝึกทักษะผ่านเกมโดยไม่รู้ตัว</p>
-                        <p><strong>Personalized Skill Quest</strong> ตามรหัส (เช่น รหัส 1: ผู้กู้ชีพเกาะลอยฟ้า, รหัส 6: ผู้จัดการเมืองอัจฉริยะ, รหัส 9: ผู้ฟื้นฟูโลก)</p>
-                        <p><strong>Mission Log – Human Dignity:</strong> บันทึก “วันนี้ทำอะไรพลาด → เรียนรู้อะไร → กลับมาเริ่มใหม่ยังไง” ทักษะสำคัญที่สุดคือการลุกได้เร็ว ไม่ใช่การไม่ล้ม</p>
-                        <p><strong>Parent Dashboard – พ่อแม่โหมดเพื่อน:</strong> Best Friend Mode (คำเตือนสั้น ฮา), Reliable Friend Mode (รับฟัง), Mission Control (สังเกตจากระยะห่าง), No Blah Blah Blah</p>
-                        <p><strong>MLQ-Music:</strong> Focus Frequency จาก DNA รหัสชีวิต → เข้าสู่ Flow State (Oxytocin + Dopamine)</p>
-                    </div>
-                </details>
-            </div>
-
-            <!-- Download full PDF CTA -->                
-            <div class="mt-20 text-center px-4"> 
-              <a href="Docs/Mission-MLQ-LifeQuest-Blueprint.pdf" target="_blank" 
-                  class="inline-flex items-center justify-center rounded-full font-bold shadow-lg hover:scale-105 transition-all pulse-btn w-fit mx-auto border-2 border-transparent"
-                  style="background: linear-gradient(105deg, #f97316, #ec489a); color: white; padding: 12px 40px; min-width: 280px; display: inline-flex;">      
-                <i class="fa-solid fa-file-pdf text-xl shrink-0 mr-3"></i>
-                <span class="text-sm sm:text-base whitespace-nowrap">รับพิมพ์เขียวฉบับสมบูรณ์ (PDF)</span>
-              </a>
-              <p class="text-[10px] sm:text-xs text-gray-400 mt-4 leading-relaxed">
-                ดาวน์โหลดเอกสารเพื่ออ่านแบบออฟไลน์ <br class="sm:hidden"> หรือแชร์กับครอบครัว
-              </p>
-          </div>          
-        </div>
-    </section>
-
     <!-- Closing Section — ปรับ mantra ให้เต็มรูปแบบ -->
     <section class="py-12 md:py-20 bg-white">
         <div class="container mx-auto px-4 max-w-3xl text-center">
@@ -589,8 +582,8 @@
                         </span>
                     </div>
                 </div>
-                <p class="text-gray-700 text-base max-w-xl mx-auto mt-4">ทุกวันคือโอกาสใหม่ที่จะก้าวต่อไป อย่ารอให้พร้อม</p>
-                <p class="text-gray-700 text-base max-w-xl mx-auto mt-4"> - เริ่มจากสิ่งที่พอทำได้วันนี้ แล้วค่อยๆปรับไป - </p>
+                <p class="text-gray-700 text-base max-w-xl mx-auto mt-4">ทุกวันคือโอกาสใหม่ที่จะก้าวต่อไป — เริ่มจากสิ่งที่พอทำได้วันนี้</p>
+                <p class="text-gray-700 text-base max-w-xl mx-auto mt-3">ค่อยๆ สร้างสภาพแวดล้อมให้เหมาะสมกับภารกิจ ให้มันกลายเป็นกิจวัฏประจำวัน แล้วใช้คานผ่อนแรงที่ใช่ — ไต่ขึ้นไปทีละขั้น</p>
                 <div class="mt-8 flex flex-wrap justify-center gap-4">
                     <a href="#mlq-analyzer" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-xl transition inline-flex items-center gap-2">
                         <i class="fa-regular fa-hand-peace"></i> เริ่มภารกิจวันนี้
@@ -629,101 +622,5 @@
             <p class="mt-5 text-xs">© 2026 Mission-MLQ · The LifeQuest Blueprint · Life OS</p>
         </div>
     </footer>
-
-    <audio id="previewAudio" style="display: none;" preload="none"></audio>
-
-    <script>
-        // ======================== Helper functions สำหรับวันที่ (ป้องกัน iOS ปัญหาปี พ.ศ.) ========================
-        function formatDateInput(input) {
-            let value = input.value.replace(/\D/g, '');
-            if (value.length >= 2) value = value.slice(0,2) + '/' + value.slice(2);
-            if (value.length >= 5) value = value.slice(0,5) + '/' + value.slice(5,9);
-            input.value = value.slice(0,10);
-        }
-
-        function convertToISO(dateStr) {
-            if (!dateStr) return '';
-            // ถ้าเป็นรูปแบบ YYYY-MM-DD อยู่แล้ว (เช่นจาก localStorage) ให้คืนค่าเดิม
-            if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr;
-            let parts = dateStr.split('/');
-            if (parts.length === 3) {
-                let [day, month, year] = parts;
-                if (day && month && year && day.length===2 && month.length===2 && year.length===4) {
-                    return `${year}-${month}-${day}`;
-                }
-            }
-            return '';
-        }
-
-        // ======================== Core Algorithm ========================
-        function reduceToSingleDigit(num) { while(num>9){let s=0;while(num>0){s+=num%10;num=Math.floor(num/10);}num=s;}return num; }
-        function calculateDestinyNumberTwoDigit(numberStr) {
-            let str = numberStr.replace(/\D/g,'');
-            if(str.length%2!==0) str='0'+str;
-            const half=str.length/2, g1=str.slice(0,half), g2=str.slice(half);
-            const reduce=(g)=>{let sum=0;for(let i=0;i<g.length;i++)sum+=parseInt(g[i]);while(sum>9){let s=0;while(sum>0){s+=sum%10;sum=Math.floor(sum/10);}sum=s;}return sum;};
-            const d1=reduce(g1), d2=reduce(g2);
-            return parseInt(d1.toString()+d2.toString());
-        }
-        function calculateLifePathFromDateTime(birthDateStr,birthTimeStr){
-            const [year,month,day]=birthDateStr.split('-'),[hour,minute]=birthTimeStr.split(':');
-            const raw=`${hour.padStart(2,'0')}${minute.padStart(2,'0')}${day.padStart(2,'0')}${month.padStart(2,'0')}${year}`;
-            const destiny=calculateDestinyNumberTwoDigit(raw);
-            const lifePath=reduceToSingleDigit(destiny);
-            return {destiny,lifePath};
-        }
-        const skillMap={1:{strengths:["กล้าเริ่มต้น","ตัดสินใจเด็ดขาด","เป็นผู้นำ"],skills:["การวางแผน","การบริหารทีม","การรับฟัง"]},2:{strengths:["สื่อสารดี","เข้าอกเข้าใจ","ทำงานเป็นทีม"],skills:["การเจรจา","การกำหนดขอบเขต","การตัดสินใจด้วยตัวเอง"]},3:{strengths:["สร้างสรรค์","มองโลกในแง่ดี","แสดงออกเก่ง"],skills:["การมีระเบียบวินัย","การจดจ่อกับงาน","การจัดการอารมณ์"]},4:{strengths:["เป็นระบบ","อดทน","ซื่อสัตย์"],skills:["การปรับตัว","การคิดนอกกรอบ","การผ่อนคลาย"]},5:{strengths:["ปรับตัวไว","กล้าเสี่ยง","มีเสน่ห์"],skills:["การยับยั้งชั่งใจ","การทำตามแผน","การรับผิดชอบระยะยาว"]},6:{strengths:["รับผิดชอบสูง","ห่วงใยผู้อื่น","สร้างสมดุล"],skills:["การดูแลตัวเอง","การปฏิเสธ","การวางระบบ"]},7:{strengths:["วิเคราะห์ลึก","ชอบเรียนรู้","เชื่อถือได้"],skills:["การทำงานเป็นทีม","การสื่อสารให้คนเข้าใจ","การเปิดใจ"]},8:{strengths:["มุ่งมั่น","บริหารเก่ง","มองการณ์ไกล"],skills:["การสร้างทีม","การรับฟัง","การเสียสละ"]},9:{strengths:["ใจกว้าง","มีอุดมการณ์","เห็นภาพรวม"],skills:["การจัดการการเงินส่วนตัว","การรักษาขอบเขต","การพักผ่อน"]}};
-        function getSkillData(lp){let key=reduceToSingleDigit(lp);return skillMap[key]||{strengths:["ศักยภาพเฉพาะตัว","การปรับตัว","ความยืดหยุ่น"],skills:["การเรียนรู้ตลอดชีวิต","การตั้งเป้าหมาย","การสะท้อนคิด"]};}
-        function getMusicPreviewUrl(lp){let trackId=(reduceToSingleDigit(lp)%10)+1;return `https://www.soundhelix.com/examples/mp3/SoundHelix-Song-${trackId}.mp3`;}
-        let currentDynamicLifePath=6;
-        const audioElem=document.getElementById('previewAudio');
-        function playMusicByLifePath(lp){if(audioElem){audioElem.src=getMusicPreviewUrl(lp);audioElem.play().catch(e=>console.warn());}}
-        function displayResult(nickname,destiny,lifePath){
-            const container=document.getElementById('resultContainer');
-            const skill=getSkillData(lifePath);
-            const strengthsList=skill.strengths.map(s=>`<li class="flex items-start gap-2"><i class="fa-regular fa-circle-check text-green-500 mt-1"></i> <span>${s}</span></li>`).join('');
-            const skillsList=skill.skills.map(s=>`<li class="flex items-start gap-2"><i class="fa-regular fa-arrow-right text-blue-500 mt-1"></i> <span>${s}</span></li>`).join('');
-            const progressHtml=`<div class="mt-4 space-y-2">${skill.skills.map((s,i)=>`<div><span class="text-sm font-medium">${s}</span><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full" style="width: ${[38,45,52][i%3]}%"></div></div></div>`).join('')}</div>`;
-            const musicPreviewId=`musicPreviewBtn_${Date.now()}`;
-            const musicUrl=getMusicPreviewUrl(lifePath);
-            const html=`<div class="border-t border-indigo-100 pt-5 mt-2 result-card p-4 rounded-xl"><div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4"><div><h3 class="text-xl font-bold text-gray-800">✨ พิมพ์เขียวของ <span class="text-indigo-600">${escapeHtml(nickname)||'นักเดินทาง'}</span></h3><div class="flex flex-wrap gap-2 mt-2"><span class="destiny-badge text-white px-4 py-1 rounded-full text-sm font-mono shadow-md"><i class="fa-regular fa-chart-line mr-1"></i> Destiny ${destiny}</span><span class="lifepath-badge text-white px-4 py-1 rounded-full text-sm font-mono shadow-md"><i class="fa-regular fa-star mr-1"></i> Life Path ${lifePath}</span></div><p class="text-xs text-gray-400 mt-2">*ไม่มี Master Number — Destiny 2 หลัก, Life Path ลดรูป 1-9</p></div><button id="${musicPreviewId}" class="bg-rose-50 hover:bg-rose-100 text-rose-700 px-4 py-2 rounded-full text-sm flex gap-2 transition shadow-sm"><i class="fa-solid fa-headphones"></i> ฟัง MLQ-Music (15s)</button></div><div class="grid sm:grid-cols-2 gap-5"><div><p class="font-semibold mb-2 text-gray-700"><i class="fa-regular fa-star text-amber-500"></i> จุดแข็งทางธรรมชาติ</p><ul class="space-y-1">${strengthsList}</ul></div><div><p class="font-semibold mb-2 text-gray-700"><i class="fa-regular fa-flag-checkered text-emerald-500"></i> ทักษะพัฒนา 90 วันแรก</p><ul class="space-y-1">${skillsList}</ul></div></div>${progressHtml}<div class="mt-6 flex flex-wrap gap-3 justify-center"><a href="hq-store.html?lp=${lifePath}" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:shadow-md transition shadow">รับแผน 90 วันเต็ม →</a><a href="#community" class="border border-gray-300 px-6 py-2 rounded-full text-sm hover:bg-gray-50 transition">เข้าร่วมชุมชน</a></div><p class="text-xs text-gray-400 text-center mt-5">*ผลลัพธ์ใช้รหัสชีวิตแบบไม่มี Master Number ตามระบบ Mission-MLQ</p></div>`;
-            container.innerHTML=html;container.classList.remove('hidden');
-            document.getElementById(musicPreviewId)?.addEventListener('click',()=>{if(audioElem){audioElem.src=musicUrl;audioElem.play().catch(e=>console.warn());}});
-            currentDynamicLifePath=lifePath;
-        }
-        function escapeHtml(str){return str.replace(/[&<>]/g,function(m){if(m==='&')return '&amp;';if(m==='<')return '&lt;';if(m==='>')return '&gt;';return m;});}
-        function saveToLocalStorage(nickname,birthDate,birthTime,destiny,lifePath){let h=[];try{const e=localStorage.getItem('mlq_profile_history');if(e)h=JSON.parse(e);}catch(e){}h.unshift({nickname,birthDate,birthTime,destiny,lifePath,timestamp:new Date().toISOString()});if(h.length>10)h.pop();localStorage.setItem('mlq_profile_history',JSON.stringify(h));localStorage.setItem('mlq_last_profile',JSON.stringify(h[0]));}
-
-        // Event listener สำหรับ auto-format วันเกิด
-        document.getElementById('birthDate').addEventListener('input', function(e) {
-            formatDateInput(this);
-        });
-
-        // จัดการ submit form
-        document.getElementById('lifePathForm').addEventListener('submit', (e)=>{
-            e.preventDefault();
-            const nickname = document.getElementById('nickname').value.trim() || "นักเดินทาง";
-            const rawBirthDate = document.getElementById('birthDate').value;
-            const birthTime = document.getElementById('birthTime').value || "12:00";
-            if(!rawBirthDate){ alert("กรุณากรอกวันเกิด"); return; }
-            
-            const birthDate = convertToISO(rawBirthDate);
-            if(!birthDate){
-                alert("รูปแบบวันเกิดไม่ถูกต้อง (กรุณาใช้ DD/MM/YYYY เช่น 28/01/2015)");
-                return;
-            }
-            
-            const { destiny, lifePath } = calculateLifePathFromDateTime(birthDate, birthTime);
-            saveToLocalStorage(nickname, birthDate, birthTime, destiny, lifePath);
-            displayResult(nickname, destiny, lifePath);
-            document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-
-        function startNotionAnimation(){const progressFill=document.getElementById('animatedProgressFill'),percentSpan=document.getElementById('notionLivePercent'),task1Val=document.getElementById('task1Val'),task2Val=document.getElementById('task2Val'),task3Val=document.getElementById('task3Val'),bars=document.querySelectorAll('#ecosystem .smooth-progress');if(!progressFill)return;setInterval(()=>{const newPercent=Math.floor(Math.random()*30)+55;progressFill.style.width=newPercent+'%';if(percentSpan)percentSpan.innerText=newPercent+'%';const r1=Math.floor(Math.random()*30)+45,r2=Math.floor(Math.random()*40)+30,r3=Math.floor(Math.random()*20)+70;if(task1Val)task1Val.innerText=r1+'%';if(task2Val)task2Val.innerText=r2+'%';if(task3Val)task3Val.innerText=r3+'%';if(bars[0])bars[0].style.width=r1+'%';if(bars[1])bars[1].style.width=r2+'%';if(bars[2])bars[2].style.width=r3+'%';},3800);}
-        startNotionAnimation();
-        document.getElementById('globalMusicPreviewBtn')?.addEventListener('click',()=>{playMusicByLifePath(currentDynamicLifePath);});
-        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
-        let lastScroll=0;const stickyCTA=document.getElementById('stickyCTA');window.addEventListener('scroll',()=>{const cs=window.pageYOffset;if(cs>300&&cs>lastScroll)stickyCTA.classList.add('hide');else if(cs<lastScroll||cs<100)stickyCTA.classList.remove('hide');lastScroll=cs;});
-    </script>
 </body>
 </html>
