@@ -481,7 +481,7 @@
                     <div class="flex justify-center mb-4"><div class="bg-gradient-to-br from-gray-50 to-white p-4 rounded-2xl shadow-md"><img src="images/Logo_MLQ-Path.png" alt="MLQ-Path Logo" class="logo-pillar"></div></div>
                     <h3 class="text-2xl font-bold mb-2">MLQ‑Path</h3>
                     <p class="text-gray-500 text-sm mb-2">Notion Template · ศูนย์กลางภารกิจครอบครัว</p>
-                    <div class="mt-3 bg-gray-50 rounded-xl p-3 text-left border border-gray-200">
+                    <div class="mt-3 bg-gray-50 rounded-xl p-3 mb-2 text-left border border-gray-200">
                         <div class="flex justify-between text-xs font-semibold text-gray-600 mb-1"><span>📌 ภารกิจวันนี้</span><span id="notionLivePercent">68%</span></div>
                         <div class="w-full bg-gray-200 rounded-full h-2 mb-3 overflow-hidden"><div id="animatedProgressFill" class="h-full rounded-full live-progress-bar" style="width: 68%; transition: width 0.5s ease"></div></div>
                         <div class="space-y-2 text-xs">
@@ -490,6 +490,24 @@
                             <div class="flex justify-between"><span>🎯 เป้าหมาย Q2</span><span id="task3Val">87%</span></div><div class="w-full bg-gray-200 rounded-full h-1.5"><div class="bg-gray-600 h-1.5 rounded-full smooth-progress" style="width:87%"></div></div>
                         </div>
                         <p class="text-[10px] text-gray-400 mt-2 text-center"><i class="fa-regular fa-chart-line"></i> Dynamic Dashboard — กำลังซิงค์ภารกิจ</p>
+                    </div>
+                    
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                        <div class="mt-10 flex flex-wrap justify-center gap-6">
+                            
+                          <!-- ปุ่มค้นหาแนวทาง (MLQ‑Path) – เปลี่ยนเป็นทอง -->
+                          <a href="mlq-path.html#path-content"    
+                                 class="inline-flex items-center justify-center gap-2 w-full bg-white text-amber-600 px-4 py-2 rounded-full  text-base  text-white font-medium transition-all duration-300 active:scale-95  hover:scale-105 border border-amber-300 shadow-sm"
+                                 style="background: linear-gradient(105deg, #4f46e5, #a855f7);">
+                                  <i class="fa-regular fa-compass mr-2"></i> อ่านบทความ:  ค้นหาแนวทาง การก้าวข้ามความไม่คุ้นชิน
+                          </a>
+                                 
+                  
+                          <a href="mlq-path.html#routine" 
+                                class="inline-flex items-center justify-center px-6 py-3 rounded-full text-base font-medium text-indigo-700 bg-white border-2 border-indigo-300 shadow-sm transition-all duration-300 hover:bg-indigo-50 hover:shadow-md hover:scale-105">
+                                <i class="fa-regular fa-calendar-check mr-2"></i> สร้างกิจวัฏประจำวันง่ายๆ สู่เป้าหมายยิ่งใหญ่
+                          </a>
+                        </div>
                     </div>
                 </div>
                 <!-- MLQ-Studio -->
@@ -500,28 +518,31 @@
                     <p class="text-gray-500 text-sm mb-2">Roblox / Minecraft · Life Simulator</p>
                     <p class="text-gray-600 text-sm">จำลองสถานการณ์อาชีพ ให้น้องๆ ซึมซับสภาพแวดล้อมของภารกิจ — สนุก 80% เรียนรู้ 20% ฝึกทักษะโดยไม่รู้ตัว</p>
                 </div>
+                
                 <!-- MLQ-Music with DNA audio -->
                 <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100 skill-card text-center">
                     <img src="images/MLQ-Music.png" alt="MLQ-Music preview" class="w-full h-40 object-cover rounded-xl mb-4" onerror="this.style.display='none'">
                     <div class="flex justify-center mb-4"><div class="bg-gradient-to-br from-gray-50 to-white p-4 rounded-2xl shadow-md"><img src="images/Logo_MLQ-Music.png" alt="MLQ-Music Logo" class="logo-pillar"></div></div>
-                    
-                    <!-- a id="globalMusicPreviewBtn" href="https://rainboworcakids-collab.github.io/MLQ-Music/Basic/"
-                        class="flex flex-col items-center justify-center mt-2 mb-2 bg-rose-50 hover:bg-rose-100 text-rose-700 px-5 py-2 rounded-full text-sm font-medium transition active:scale-95 border border-rose-200"
-                        style="text-decoration: none;">
-                           <h3 class="text-2xl font-bold"><i class="fa-solid fa-headphones"></i> MLQ‑Music</h3>
-                           <p class="text-[10px] text-gray-400 text-center">Listen to your DNA</p>
-                    </a -->
-            
-                    <a id="globalMusicPreviewBtn" href="https://rainboworcakids-collab.github.io/MLQ-Music/Basic/"
-                        class="inline-flex flex-col items-center justify-center mt-2 mb-2 bg-rose-50 hover:bg-rose-100 text-rose-700 px-5 py-2 rounded-full text-sm font-medium transition active:scale-95 border border-rose-200 mx-auto"
-                        style="text-decoration: none;">
-                           <h3 class="text-2xl font-bold bt-2 bb-1 pl-4 "><i class="fa-solid fa-headphones"></i> MLQ‑Music</h3>
-                           <p class="text-[10px] text-gray-400 text-center">Listen to your DNA</p>
+
+                    <!-- ปุ่มฟังเพลง (external) -->
+                    <a href="https://rainboworcakids-collab.github.io/MLQ-Music/Basic/" target="_blank"
+                      class="inline-flex items-center justify-center gap-2 w-full bg-rose-50 hover:bg-rose-100 text-rose-700 px-4 py-2 rounded-full text-sm font-medium transition active:scale-95 border border-rose-200 mb-3">
+                      <i class="fa-solid fa-headphones"></i> ฟังเพลง DNA ของคุณ
+                      <span class="text-[10px] bg-rose-200 rounded-full px-2 py-0.5">♪ Focus Frequency</span>
                     </a>
-            
-                    <p class="text-gray-500 text-sm mb-2">Focus Frequency · DNA เพลงจากรหัสชีวิต</p>
-                    <p class="text-gray-600 text-sm mt-3">ซึมซับภารกิจแบบผ่อนคลาย ผ่าน Focus Frequency จาก DNA รหัสชีวิต — สร้าง Flow State เพื่อกลับเข้าสู่เส้นทาง</p>
-                </div>
+
+                    <!-- ปุ่มอ่านบทความ (หน้าใหม่) -->                       
+                    <a href="mlq-music.html"
+                        class="inline-flex items-center justify-center gap-2 w-full bg-white text-amber-600 px-4 py-2 rounded-full  text-base  text-white font-medium transition-all duration-300 active:scale-95  hover:scale-105 border border-amber-300 shadow-sm"
+                        style="background: linear-gradient(105deg, #4f46e5, #a855f7);">
+                       <i class="fa-regular fa-moon"></i> อ่านบทความ: พลังแห่งการหลับสนิท
+                       <span class="text-[10px] text-white bg-amber-100 text-amber-700 rounded-full px-2 py-0.5">Deep Sleep</span>
+                    </a>
+     
+      
+                    <p class="text-gray-500 text-sm mt-4">Focus Frequency · DNA เพลงจากรหัสชีวิต</p>
+                      <p class="text-gray-600 text-sm mt-2">ซึมซับภารกิจแบบผ่อนคลาย ผ่าน Focus Frequency จาก DNA รหัสชีวิต — สร้าง Flow State เพื่อกลับเข้าสู่เส้นทาง</p>
+                    </div>
             </div>
         </div>
     </section>
