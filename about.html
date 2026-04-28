@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>หลักคิด Mission-MLQ · ครอบครัวคือหน่วยการเรียนรู้ | Life OS</title>
+    
+    <!-- Tailwind + Font Awesome + Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; background-color: #fefefe; }
+        .hero-glow { background: radial-gradient(circle at 70% 30%, rgba(255,245,225,0.4) 0%, rgba(248,250,252,0.9) 100%); }
+        .card-shadow { transition: all 0.2s ease; }
+        .card-shadow:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1); }
+        .heart-beat {
+            animation: heartbeat 1.4s ease-in-out infinite;
+            display: inline-block;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.08); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+        .sticky-mantra {
+            background: rgba(255,255,245,0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 60px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: all 0.2s;
+        }
+        .sticky-mantra:hover { background: white; box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
+        .floating-icon { position: absolute; opacity: 0.08; pointer-events: none; user-select: none; z-index: 0; }
+        .float-1 { animation: floatAnim 8s ease-in-out infinite; }
+        @keyframes floatAnim { 0% { transform: translateY(0); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0); } }
+        .logo-main { height: 80px; width: auto; transition: transform 0.2s ease; }
+        .logo-main:hover { transform: scale(1.02); }
+        @media (max-width: 639px) {
+            .logo-main { height: 34px; }
+        }
+        /* Accordion custom */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Floating background icon -->
+    <div class="floating-icon float-1 text-7xl hidden md:block" style="top: 15%; left: 5%;">🎧</div>
+
+    <!-- NAVBAR (เหมือน indexOld.html) -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="container mx-auto px-4 sm:px-5 py-3 flex flex-wrap items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="images/Logo_Mission-MLQ.png" alt="Mission-MLQ Logo" class="logo-main" onerror="this.style.display='none'">
+                <span class="text-xl font-bold tracking-tight text-gray-800">Mission Life Quest</span>
+                <span class="text-xm text-blue-400 hidden sm:inline">· Life OS</span>
+            </div>
+            <div class="flex items-center space-x-3 text-sm">
+                <a href="index.html" class="text-gray-600 hover:text-indigo-600 transition hidden md:inline">หน้าแรก</a>
+                <a href="mlq-path.html" class="text-gray-600 hover:text-indigo-600 transition hidden md:inline">MLQ‑Path</a>
+                <a href="mlq-music.html" class="text-gray-600 hover:text-indigo-600 transition hidden md:inline">MLQ‑Music</a>
+                <a href="#community" class="text-gray-600 hover:text-indigo-600 transition hidden md:inline">ชุมชน</a>
+                <a href="index.html" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:shadow-lg transition shadow-sm">เริ่มภารกิจ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero + mantra (เหมือน indexOld.html) -->
+    <section class="hero-glow py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto">
+                <div class="inline-block bg-white/70 backdrop-blur-sm rounded-full px-4 py-1 text-sm font-semibold text-amber-700 mb-5">
+                    <i class="fa-regular fa-compass mr-1"></i> ครอบครัวคือ Unit · พ่อแม่อ่านแผนที่ · ลูกลงสนาม
+                </div>
+                <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-indigo-700 via-purple-700 to-rose-700 bg-clip-text text-transparent leading-tight">
+                    ระบบปฏิบัติการชีวิต <br>ที่เติบโตไปพร้อมกับครอบครัว
+                </h1>
+                <p class="text-base md:text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
+                    Mission‑MLQ ไม่ใช่แค่เครื่องมือ – คือเพื่อนร่วมทางที่ช่วยให้ทุกคนในครอบครัว “ค้นหาเส้นทางชีวิต” และใช้คานผ่อนแรงที่ใช่
+                </p>
+                <div class="mt-10 flex flex-wrap justify-center gap-4 text-gray-700">
+                    <span class="bg-indigo-50 px-4 py-2 rounded-full text-sm font-medium"><i class="fa-regular fa-heart heart-beat text-rose-400 mr-1"></i> ก้าวแรกไม่ต้องสมบูรณ์</span>
+                    <span class="bg-indigo-50 px-4 py-2 rounded-full text-sm font-medium"><i class="fa-regular fa-clock mr-1"></i> ถ้าผิดก็ลองใหม่ — เราไม่ล้มเลิก</span>
+                    <span class="bg-indigo-50 px-4 py-2 rounded-full text-sm font-medium"><i class="fa-solid fa-microchip mr-1"></i> ชนะด้วยคานผ่อนแรง</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANTRA BANNER (เหมือน indexOld) -->
+    <div class="bg-gradient-to-r from-amber-50 via-white to-rose-50 border-y border-amber-100 py-10">
+        <div class="container mx-auto px-4 max-w-5xl text-center">
+            <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm rounded-full px-4 py-1 text-sm font-semibold text-amber-700 shadow-sm mb-4">
+                <i class="fa-solid fa-heart heart-beat text-rose-500"></i> คำย้ำเตือนจากเส้นทาง
+            </div>
+            <div class="space-y-3 md:space-y-4">
+                <div class="text-2xl md:text-4xl font-extrabold mantra-text mantra-glow leading-tight">
+                    <span class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">                   
+                        ก้าวแรกไม่ต้องสมบูรณ์<br>
+                        ถ้าผิดก็ลองใหม่ — เราไม่ล้มเลิก
+                    </span>
+                </div>
+                <div class="text-xl md:text-2xl font-bold text-gray-700 leading-tight">
+                    เพราะนี่คือเส้นทางชีวิตของเรา
+                </div>
+                <div class="text-2xl md:text-4xl font-extrabold tracking-wide">
+                    <span class="bg-gradient-to-r from-amber-600 via-rose-500 to-pink-500 bg-clip-text text-transparent drop-shadow-sm">
+                        “ชนะด้วยคานผ่อนแรง”
+                    </span>
+                </div>
+            </div>
+            <p class="text-gray-500 mt-6 max-w-2xl mx-auto text-sm md:text-base">
+                ทุกก้าวเล็ก ๆ ที่คุณเริ่มวันนี้ คือรากฐานของอนาคตที่ยิ่งใหญ่ ไม่มีใครเก่งตั้งแต่เริ่ม<br>
+                ความล้มเหลวคือข้อมูล — ไม่ใช่ตราบาป
+            </p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT: 3 เสาหลัก (เพื่อให้เกิดภาพรวม) -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-12">
+                <span class="text-sm text-gray-500 uppercase tracking-wider">พิมพ์เขียวธรรมชาติ</span>
+                <h2 class="text-2xl md:text-4xl font-bold text-gray-800 mt-2">เมื่อรหัสชีวิต กลายเป็น <span class="text-indigo-600">ระบบปฏิบัติการ (Life OS)</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-indigo-50/40 to-white p-6 rounded-2xl shadow-sm border border-indigo-100 card-shadow">
+                    <i class="fa-solid fa-music text-4xl text-indigo-500 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">MLQ‑Music</h3>
+                    <p class="text-gray-600">DNA เพลงเฉพาะบุคคล ช่วยให้จิตใจสงบ โฟกัส และกลับเข้าสู่เส้นทางชีวิตได้ง่าย</p>
+                </div>
+                <div class="bg-gradient-to-br from-amber-50/40 to-white p-6 rounded-2xl shadow-sm border border-amber-100 card-shadow">
+                    <i class="fa-solid fa-map-location-dot text-4xl text-amber-600 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">MLQ‑Path</h3>
+                    <p class="text-gray-600">Notion Template เปลี่ยนกิจวัตรให้เป็นภารกิจ พร้อม Mission Log บันทึกความล้มเหลวที่น่าภูมิใจ</p>
+                </div>
+                <div class="bg-gradient-to-br from-emerald-50/40 to-white p-6 rounded-2xl shadow-sm border border-emerald-100 card-shadow">
+                    <i class="fa-solid fa-gamepad text-4xl text-emerald-600 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">MLQ‑Studio</h3>
+                    <p class="text-gray-600">Roblox / Minecraft จำลองภารกิจชีวิต ฝึกทักษะ 80/20 โดยไม่รู้ตัว</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <p class="text-gray-600">“เมื่อใดก็ตามที่คุณรู้สึกติดขัด เสียงเพลงจากรหัสชีวิตจะพาคุณกลับสู่เส้นทาง”</p>
+                <div class="mt-6 flex flex-wrap justify-center gap-4">
+                    <a href="index.html" class="bg-gray-800 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-900 transition inline-flex items-center gap-2"><i class="fa-regular fa-compass mr-1"></i> เริ่มภารกิจวันนี้</a>
+                    <a href="mlq-music.html" class="border border-gray-300 px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-50 transition">ฟังตัวอย่างเพลง DNA</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- หัวใจแห่งความสำเร็จ: 3 ระบบเชื่อมโยง -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-12">
+                <span class="text-sm text-indigo-600 font-semibold tracking-wide uppercase">หัวใจแห่งความสำเร็จ</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">3 ระบบเชื่อมโยงที่เปลี่ยนความฝันให้เป็นผลลัพธ์</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto mt-3">MLQ-Music · MLQ-Path · MLQ-Studio ทำงานประสานกัน เพื่อให้คุณ “ลงมือทำได้จริง” อย่างยั่งยืน</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-7 shadow-md border border-gray-200 card-shadow text-center">
+                    <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <i class="fa-solid fa-head-side-vr text-3xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">MLQ‑Music</h3>
+                    <p class="text-gray-600 leading-relaxed">สร้างสมาธิและความสงบในใจ ช่วยย้ำเตือนให้กลับสู่เส้นทางชีวิต ฟื้นฟูจังหวะของตัวเอง</p>
+                    <div class="mt-4 text-sm text-indigo-500"><i class="fa-regular fa-clock"></i> “สงบ กลับมาโฟกัสได้อีกครั้ง”</div>
+                </div>
+                <div class="bg-white rounded-2xl p-7 shadow-md border border-gray-200 card-shadow text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <i class="fa-solid fa-chart-line text-3xl text-amber-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">MLQ‑Path</h3>
+                    <p class="text-gray-600 leading-relaxed">ค้นหาทางเลือก โอกาส และจังหวะที่เหมาะสมจากข้อมูลและสถานะภาพปัจจุบัน วางแผนชีวิตอย่างมีกลยุทธ์</p>
+                    <div class="mt-4 text-sm text-amber-500"><i class="fa-regular fa-lightbulb"></i> “รู้ว่าตอนนี้ควรทำอะไร ขั้นไหนต่อไป”</div>
+                </div>
+                <div class="bg-white rounded-2xl p-7 shadow-md border border-gray-200 card-shadow text-center">
+                    <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <i class="fa-solid fa-gamepad text-3xl text-emerald-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">MLQ‑Studio</h3>
+                    <p class="text-gray-600 leading-relaxed">สร้างความเข้าใจและความคุ้นเคยกับสภาพแวดล้อมและเครื่องมือ เปลี่ยนความลังเลให้เป็นความกล้าลงมือทำจริง</p>
+                    <div class="mt-4 text-sm text-emerald-500"><i class="fa-regular fa-thumbs-up"></i> “เคยชินโดยไม่รู้ตัว – ทำได้โดยไม่ฝืน”</div>
+                </div>
+            </div>
+            <div class="mt-12 text-center bg-white rounded-xl p-6 shadow-sm border border-gray-200 max-w-3xl mx-auto">
+                <p class="text-gray-700"><i class="fa-solid fa-link text-indigo-500 mr-2"></i> MLQ‑Music ปรับจังหวะจิตใจ → MLQ‑Path ชี้ทางและจังหวะที่ใช่ → MLQ‑Studio สร้างความเคยชินจนสำเร็จ</p>
+                <p class="text-sm text-gray-500 mt-2">✨ เมื่อทั้งสามระบบเชื่อมถึงกัน ความฝันที่ใหญ่จะไม่ใช่แค่ความหวัง แต่กลายเป็นกิจวัตรที่ทำได้ทุกวัน ✨</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= DIGITAL BLUEPRINT (เนื้อหาจริงจาก blueprint) ================= -->
+    <section class="py-20 bg-white" id="blueprint">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800">📖 Digital Blueprint: พิมพ์เขียวภารกิจชีวิต</h2>
+                <p class="text-gray-500 mt-2">กดอ่านเนื้อหาสำคัญของ Mission‑MLQ ได้ทันที – ไม่ต้องดาวน์โหลด</p>
+            </div>
+            <div class="space-y-4">
+                <!-- บทที่ 1 -->
+                <details class="group border border-gray-200 rounded-xl p-4 hover:bg-gray-50/50 transition-all cursor-pointer">
+                    <summary class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                        <span>บทที่ 1: ก้าวแรกไม่ต้องสมบูรณ์ (The Awakening)</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-500"></i>
+                    </summary>
+                    <div class="mt-4 text-gray-600 leading-relaxed space-y-3">
+                        <p><strong class="text-gray-800">ปรัชญาหลัก:</strong> “ก้าวแรกไม่ต้องสมบูรณ์ ทำสิ่งที่พอทำได้ในตอนนี้ ถ้าผิดก็ปรับจูนใหม่ เราไม่ล้มเลิก เพราะนี่คือเส้นทางของเรา”</p>
+                        <p>การเริ่มต้นไม่จำเป็นต้องสมบูรณ์แบบ ความผิดพลาดคือข้อมูลเพื่อการพัฒนา ไม่ใช่ตราบาป สังคมมักบีบให้เราออกนอกเส้นทางเดิมของตัวเอง จนรู้สึกว่าชีวิตไม่ราบรื่น ถ้าเป็นเช่นนั้น… บางทีถึงเวลาทำความเข้าใจ “เส้นทางชีวิต” ของตัวเองอีกครั้ง</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Action over Patterns:</strong> ความสำเร็จมาจากการลงมือทำที่ถูกจังหวะ ไม่ใช่การคาดเดา</li>
+                            <li><strong>สร้างสภาพแวดล้อมให้เหมาะสมกับภารกิจ:</strong> ปรับกิจวัฏ สถานที่ ผู้คน เครื่องมือ ให้สนับสนุนภารกิจแบบไม่ฝืน — ทุกอย่างที่ดูยากสำหรับคนอื่น จะเป็นเรื่องง่ายเพราะมันคือกิจวัฏที่ทำอยู่ทุกวัน</li>
+                            <li><strong>Pinnacle Logic:</strong> ปรับพฤติกรรมตามช่วงวัย – แต่ละ Pinnacle มีภารกิจเฉพาะ และคานผ่อนแรงที่เหมาะสมต่างกัน</li>
+                        </ul>
+                        <div class="bg-amber-50 p-3 rounded-lg italic text-sm">✨ Story: ลูกชายพูด native English ได้โดยไม่เคยเรียนอินเตอร์ — ใช้คลิป YouTube ที่ลูกชอบวันละ 30-60 นาที เป็นคานผ่อนแรง สร้างสภาพแวดล้อมให้ซึมซับภาษาแบบสนุก ไม่กดดัน ไม่บังคับ — เด็กเริ่มพูดตามเองตามธรรมชาติ</div>
+                    </div>
+                </details>
+                <!-- บทที่ 2 -->
+                <details class="group border border-gray-200 rounded-xl p-4 hover:bg-gray-50/50 transition-all cursor-pointer">
+                    <summary class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                        <span>บทที่ 2: ภารกิจตามช่วงวัย & Leverage ที่แท้จริง</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-500"></i>
+                    </summary>
+                    <div class="mt-4 text-gray-600 leading-relaxed space-y-3">
+                        <p>ระบบการศึกษาสร้างกรอบคิดเส้นทางเดียว: เรียน→ทำงาน→มีครอบครัว→ซื้อบ้าน→วนลูป แต่ Pinnacle แต่ละช่วงวัยมีภารกิจแตกต่างกัน</p>
+                        <p><strong>ตัวอย่างวัยกลางคน→ปลายวัย:</strong> ร่างกายเปลี่ยน แต่พฤติกรรมยังเหมือนเดิม → น้ำหนักขึ้น โรคเรื้อรัง ลองผิดวิธีซ้ำแล้วซ้ำเล่า ที่แท้จริงคือ “ใช้ Leverage ผิดภารกิจ”</p>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white border rounded-lg text-sm">
+                                <thead class="bg-gray-100"><tr><th class="p-2 text-left">แทนที่</th><th class="p-2 text-left">Leverage ที่ถูกต้อง</th></tr></thead>
+                                <tbody>
+                                    <tr class="border-t"><td class="p-2">ขับรถไปซื้อของ</td><td class="p-2">เดินไปร้านสะดวกซื้อช่วงแดดไม่ร้อน → ใช้กิจวัตรเป็นแรง</td></tr>
+                                    <tr class="border-t"><td class="p-2">ลดอาหารเข้มงวด</td><td class="p-2">เลือกอาหารพลังงานต่ำ + น้ำ 2 ลิตร/วัน → ไม่อดอาหาร</td></tr>
+                                    <tr class="border-t"><td class="p-2">ออกกำลังกายหนัก</td><td class="p-2">เพิ่มโปรตีน + เคลื่อนไหวในกิจวัตรปกติ</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt-2">ผลลัพธ์: ไม่รู้สึกฝืน → ทำต่อเนื่อง → ไม่เลิกกลางทาง → สำเร็จจริง</p>
+                        <div class="bg-orange-50 border-l-4 border-orange-400 p-3 rounded-lg text-sm mt-3">
+                            <p class="font-semibold text-orange-800 mb-1">🔑 หัวใจของคานผ่อนแรง</p>
+                            <ul class="list-disc pl-4 space-y-1 text-gray-700">
+                                <li>รู้สึกเหมือนเป็น<strong>กิจวัฏที่ต้องทำ</strong> และทำได้แบบไม่ฝืนใจ ไม่ตึงเครียด</li>
+                                <li>ไปให้ถึงเป้าหมาย<strong>แบบสนุกสนานและประทับใจ</strong></li>
+                                <li>ทุกอย่างที่ดูยากสำหรับคนอื่น จะเป็น<strong>เรื่องง่าย</strong>เพราะมันคือกิจวัฏประจำวัน</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+                <!-- บทที่ 3 – Skill Map -->
+                <details class="group border border-gray-200 rounded-xl p-4 hover:bg-gray-50/50 transition-all cursor-pointer">
+                    <summary class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                        <span>บทที่ 3: Human Logic Engine — รหัสทักษะธรรมชาติ</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-500"></i>
+                    </summary>
+                    <div class="mt-4 text-gray-600 leading-relaxed space-y-3">
+                        <p>ระบบวิเคราะห์ข้อมูลพฤติกรรมเพื่อระบุรหัสทักษะธรรมชาติ และวางแผน Personalized Learning Path</p>
+                        <p><strong>ตัวอย่างรหัสทักษะ 2/29 (เวลา 01:00 28/01/2015):</strong> รหัส 2 = The Connector (สื่อสาร, เข้าอกเข้าใจ) / รหัส 9 = นักมนุษยธรรม (ใจกว้าง, ช่วยสังคม) → Mission 29 = สะพานเชื่อมคนและโอกาสเพื่อช่วยสังคม</p>
+                        <p><strong>Action Guide 3 เดือน:</strong> ฝึกการฟัง, Negotiation, การสื่อสารข้ามกลุ่ม — ใช้เครื่องมือดิจิทัลสร้างเครือข่ายมากกว่าฝืนทำงานคนเดียว</p>
+                        <p><strong>Skill Map 1–9 ฉบับย่อ:</strong> ผู้นำ, ผู้เชื่อมต่อ, นักสร้างสรรค์, นักสร้างระบบ, นักผจญภัย, ผู้ออกแบบสภาพแวดล้อม, นักค้นคว้า, นักพลังงาน, นักมนุษยธรรม — แต่ละรหัสมี Leverage และอาชีพ Skill-Based ที่เหมาะสม</p>
+                        <div class="bg-indigo-50 p-3 rounded-lg text-sm">
+                            <p class="font-semibold">💡 สำหรับพ่อแม่: Skill Map ช่วยตอบว่า “ลูกถนัดอะไร”, “ลูกสมาธิสั้นหรือเปล่า (อธิบาย pattern พลังงาน)”, “อาชีพอนาคตลูก”, “วางแผน 3 เดือนอย่างไร”</p>
+                        </div>
+                    </div>
+                </details>
+                <!-- บทที่ 5–7 -->
+                <details class="group border border-gray-200 rounded-xl mb-5 p-4 hover:bg-gray-50/50 transition-all cursor-pointer">
+                    <summary class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                        <span>บทที่ 5–7: Life Simulator & Mission Log</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-500"></i>
+                    </summary>
+                    <div class="mt-4 text-gray-600 leading-relaxed space-y-3">
+                        <p><strong>Life Simulator (Roblox / Minecraft):</strong> ภารกิจ 80% สนุก + 20% Skill → เด็กไม่เลิกกลางทาง เพราะมันสนุก ฝึกทักษะผ่านเกมโดยไม่รู้ตัว</p>
+                        <p><strong>Personalized Skill Quest</strong> ตามรหัส (เช่น รหัส 1: ผู้กู้ชีพเกาะลอยฟ้า, รหัส 6: ผู้จัดการเมืองอัจฉริยะ, รหัส 9: ผู้ฟื้นฟูโลก)</p>
+                        <p><strong>Mission Log – Human Dignity:</strong> บันทึก “วันนี้ทำอะไรพลาด → เรียนรู้อะไร → กลับมาเริ่มใหม่ยังไง” ทักษะสำคัญที่สุดคือการลุกได้เร็ว ไม่ใช่การไม่ล้ม</p>
+                        <p><strong>Parent Dashboard – พ่อแม่โหมดเพื่อน:</strong> Best Friend Mode (คำเตือนสั้น ฮา), Reliable Friend Mode (รับฟัง), Mission Control (สังเกตจากระยะห่าง), No Blah Blah Blah</p>
+                        <p><strong>MLQ-Music:</strong> Focus Frequency จาก DNA รหัสชีวิต → เข้าสู่ Flow State (Oxytocin + Dopamine)</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Download full PDF CTA -->
+            <div class="mt-12 text-center">
+                <a href="Docs/Mission-MLQ-LifeQuest-Blueprint.pdf" target="_blank" 
+                   class="inline-flex items-center justify-center rounded-full font-bold shadow-lg hover:scale-105 transition-all pulse-btn w-fit mx-auto border-2 border-transparent"
+                   style="background: linear-gradient(105deg, #f97316, #ec489a); color: white; padding: 12px 40px; min-width: 280px; display: inline-flex;">
+                    <i class="fa-solid fa-file-pdf text-xl shrink-0 mr-3"></i>
+                    <span class="text-sm sm:text-base whitespace-nowrap">รับพิมพ์เขียวฉบับสมบูรณ์ (PDF)</span>
+                </a>
+                <p class="text-[10px] sm:text-xs text-gray-400 mt-4 leading-relaxed">
+                    ดาวน์โหลดเอกสารเพื่ออ่านแบบออฟไลน์ หรือแชร์กับครอบครัว
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- เนื้อหาเชิงลึก: ความหมายของครอบครัว (เหมือนเดิม) -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">👨‍👩‍👧‍👦 ครอบครัวคือหน่วยการเรียนรู้</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Mission‑MLQ เกิดจากความตั้งใจของพ่อคนหนึ่งที่ต้องการสร้าง “สภาพแวดล้อมที่เหมาะสม” ให้ลูกได้เติบโตตามเส้นทางของตัวเอง โดยไม่ต้องบังคับ ไม่ต้องพร่ำสอน (No Blah Blah Blah)</p>
+                    <p class="text-gray-600 leading-relaxed">เราเชื่อว่าทุกครอบครัวสามารถเป็น “ทีม” ที่แข็งแกร่งได้ เมื่อพ่อแม่เข้าใจธรรมชาติของลูก และใช้คานผ่อนแรง (Leverage) ที่ถูกต้อง</p>
+                    <div class="mt-6 flex gap-4">
+                        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">✨ ไม่ต้องเก่ง</span>
+                        <span class="bg-rose-100 text-rose-800 px-3 py-1 rounded-full text-sm">❤️ ไม่ต้องสมบูรณ์</span>
+                        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm">🚀 แค่เริ่มต้น</span>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                    <div class="flex items-center gap-4 mb-3">
+                        <i class="fa-regular fa-star-of-life text-2xl text-amber-500"></i>
+                        <h3 class="text-xl font-bold">ปรัชญาสำคัญที่เรายึดถือ</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex gap-2"><i class="fa-regular fa-circle-check text-green-500 mt-1"></i> Action over Patterns – ลงมือทำตามจังหวะชีวิต ไม่ใช่คาดเดา</li>
+                        <li class="flex gap-2"><i class="fa-regular fa-circle-check text-green-500 mt-1"></i> สร้างสภาพแวดล้อมให้เหมาะสมกับภารกิจ – แล้วความสำเร็จจะตามมา</li>
+                        <li class="flex gap-2"><i class="fa-regular fa-circle-check text-green-500 mt-1"></i> Pinnacle Logic – ปรับพฤติกรรมตามช่วงวัย แต่ละ Pinnacle มีภารกิจเฉพาะ</li>
+                        <li class="flex gap-2"><i class="fa-regular fa-circle-check text-green-500 mt-1"></i> Human Dignity – ความล้มเหลวคือข้อมูลเพื่อการพัฒนา ไม่ใช่ตราบาป</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community" class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800">👨‍👩‍👧 พ่อแม่โหมดเพื่อนสนิท</h2>
+                <p class="text-gray-500 mt-2">ชุมชนที่เข้าใจ – ไม่ตัดสิน – แชร์วิธีสร้างสภาพแวดล้อมที่ใช่ให้ลูก</p>
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <a href="#" class="border border-gray-300 px-5 py-2 rounded-full inline-flex items-center gap-2 hover:bg-gray-50 transition text-sm"><i class="fa-brands fa-facebook text-blue-700"></i> กลุ่มพ่อแม่โหมดเพื่อนสนิท</a>
+                    <a href="#" class="border border-gray-300 px-5 py-2 rounded-full inline-flex items-center gap-2 hover:bg-gray-50 transition text-sm"><i class="fa-brands fa-line text-green-600"></i> LINE Official @MissionMLQ</a>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 text-center text-gray-600 text-sm">
+                <div><i class="fa-regular fa-clock text-indigo-400"></i> “ฟังแล้วนอนหลับลึกขึ้น”<br> – คุณแม่หนึ่ง</div>
+                <div><i class="fa-regular fa-brain text-indigo-400"></i> “โฟกัสงานได้ดีขึ้น”<br> – นักศึกษา</div>
+                <div><i class="fa-regular fa-heart heart-beat text-rose-400"></i> “เข้าใจลูกมากขึ้น”<br> – คุณพ่อเอก</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- closing mantra -->
+    <section class="py-16 bg-gradient-to-br from-amber-50 to-rose-50">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+            <div class="bg-white/70 rounded-2xl p-8 shadow-sm border border-amber-200">
+                <i class="fa-regular fa-star text-4xl text-amber-400 mb-3 heart-beat"></i>
+                <p class="text-2xl md:text-4xl font-extrabold mantra-glow leading-tight">
+                    “ก้าวแรกไม่ต้องสมบูรณ์<br>
+                     ถ้าผิดก็ลองใหม่ — เราไม่ล้มเลิก<br>
+                     เพราะนี่คือเส้นทางชีวิตของเรา — ชนะด้วยคานผ่อนแรง”
+                </p>
+                <p class="text-gray-700 mt-6">ทุกวันคือโอกาสใหม่ที่จะก้าวต่อไป อย่ารอให้พร้อม</p>
+                <p class="text-gray-600 mt-2">- เริ่มจากสิ่งที่พอทำได้วันนี้ แล้วค่อยๆปรับไป -</p>
+                <div class="mt-8">
+                    <a href="index.html" class="bg-gray-800 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-900 transition inline-flex items-center gap-2">
+                        <i class="fa-regular fa-hand-peace"></i> เริ่มภารกิจวันนี้
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desktop sticky mantra -->
+    <div class="fixed bottom-6 right-6 z-30 hidden md:block">
+        <div class="sticky-mantra px-4 py-2 text-sm font-medium text-amber-800 backdrop-blur-sm flex items-center gap-2">
+            <i class="fa-regular fa-heart heart-beat text-rose-500"></i>
+            <span class="whitespace-nowrap">✨ ก้าวแรกไม่ต้องสมบูรณ์ — ชนะด้วยคานผ่อนแรง</span>
+        </div>
+    </div>
+
+    <footer class="bg-gray-50 border-t py-8 text-center text-sm text-gray-500">
+        <div class="container mx-auto px-4">
+            <p>“เดินตามเส้นทางชีวิต คิดใหญ่ และใช้ Leverage จากเครื่องมือที่มีอยู่ให้เกิดประโยชน์สูงสุด”</p>
+            <div class="flex justify-center gap-4 mt-3 flex-wrap">
+                <a href="about.html" class="hover:text-indigo-600">หลักคิด MLQ</a>
+                <a href="#" class="hover:text-indigo-600">นโยบาย PDPA</a>
+                <a href="blueprint.html" class="hover:text-indigo-600"><i class="fa-regular fa-book-open mr-1"></i> คู่มือ LifeQuest Blueprint</a>
+                <button id="triggerDonate" class="hover:text-amber-600">☕ สนับสนุน</button>
+            </div>
+            <p class="mt-5 text-xs">© 2026 Mission-MLQ · Life OS · ครอบครัวคือ Unit</p>
+        </div>
+    </footer>
+
+    <!-- donation modal -->
+    <div id="donationModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4 transition-all">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl">
+            <div class="flex justify-between items-center border-b pb-3 mb-4">
+                <h3 class="text-xl font-bold"><i class="fas fa-heart text-rose-500 mr-2"></i> สนับสนุน Mission-MLQ</h3>
+                <button id="closeModal" class="text-gray-400 hover:text-gray-600">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-3">
+                <p>คุณสามารถสนับสนุนการพัฒนา MLQ-Music, MLQ-Path และเครื่องมือฟรีต่อไปได้</p>
+                <div class="bg-amber-50 p-4 rounded-xl">
+                    <p class="font-semibold text-amber-800">💝 ช่องทางสนับสนุน</p>
+                    <p>พร้อมเพย์: <strong>084-900-9797</strong> (Thanadej H.)</p>
+                    <p class="text-xs text-gray-500 mt-1">หลังโอนแจ้งที่ Line / Facebook เพื่อรับสิทธิ์พรีเมียม (ถ้ามี)</p>
+                </div>
+                <p class="text-xs text-center">☕ ทุกการสนับสนุน = กาแฟ 1 แก้ว เพื่อให้เราทำงานต่อ 🚀</p>
+            </div>
+            <div class="mt-6">
+                <button id="closeModal2" class="w-full bg-gray-200 py-2 rounded-full text-gray-700 hover:bg-gray-300 transition">ปิด</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Donation modal toggle
+        const modal = document.getElementById('donationModal');
+        const openBtns = ['triggerDonate'];
+        const closeBtns = ['closeModal', 'closeModal2'];
+
+        openBtns.forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) btn.addEventListener('click', () => modal?.classList.remove('hidden'));
+        });
+        closeBtns.forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) btn.addEventListener('click', () => modal?.classList.add('hidden'));
+        });
+        if(modal) modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.add('hidden'); });
+    </script>
+</body>
+</html>
